@@ -1,0 +1,220 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Source Sans Pro', sans-serif;
+
+}
+
+body {
+  background-color: #00001A;
+}
+
+h1 {
+  font-size: 24px;
+  color: white;
+  font-weight: 400;
+}
+
+h2 {
+  color: white;
+  font-size: 18px;
+  font-weight: normal;
+}
+text {
+  font-size: 14px;
+  font-weight: normal;
+  color: white;
+}
+p{
+  color: white;
+  font-size: 14px;
+}
+
+.app_container {
+  height: 100vh;
+  width: 100%;
+}
+
+.topbar {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.topbar>* {
+  padding: 10px;
+}
+
+.topbar>img:nth-child(1) {
+  height: 150px;
+}
+
+.profiles {
+  width: 50%;
+  height: 200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.square {
+  width: 150px;
+  height: 150px;
+  background-color: black;
+  margin: 10px;
+  border-radius: 50%;
+}
+
+.square:nth-child(1) {
+  background-image: url('./images/billy.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.square:nth-child(2) {
+  background-image: url('./images/dustin.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.square:nth-child(3) {
+  background-image: url('./images/11.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.linecolor {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+/* Container */
+
+.col-1 {
+  width: 100%;
+}
+
+.container {
+  height: 100%;
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.second {
+  width: 70%;
+  height: 700px;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 100%;  
+  border-radius: 12px;
+  margin: 0 auto;
+}
+
+.grid_left {
+  grid-column: 1;
+  grid-row: 1;
+  border-radius: 12px;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 50% 50%;
+}
+.grid_right {
+  border-radius: 12px;
+  background-color: #272B4A;
+  opacity: .8;
+  margin: 25px;
+}
+
+.child {
+  background-color: #272B4A;
+  opacity: .8;
+  height: auto;
+  width: auto;
+  margin: 25px;
+  border-radius: 12px;
+}
+.child:nth-child(1) {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.child:nth-child(2) {
+  grid-column: 1;
+  grid-row: 2;
+}
+.child:nth-child(3) {
+  grid-column:2;
+  grid-row: 1;
+}
+.child:nth-child(4) {
+  grid-column:2;
+  grid-row: 2;
+}
+.third {
+  width: 100%;
+  height: 700px;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 100%;
+}
+
+/* First Chart */
+#example {  
+  height: 100%;
+  width: 100%;
+  border-radius: 12px;
+}
+
+#line {  
+  height: 100%;
+  width: 100%;
+  border-radius: 12px;
+}
+
+#line>svg {  
+  height: 100%;
+  width: 100%;
+  border-radius: 12px;
+}
+
+#example>svg {
+  width: 100%;
+  height: 100%;
+}
+
+.bar {
+  fill: #c81912;  
+}
+
+
+/* Second Chart */
+#test {  
+  height: 100%;
+  width: 100%; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background-image: url('./images/stranger.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: -1;
+  opacity: .15;
+}
+
+
+.domain {
+  display: none;
+}
