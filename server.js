@@ -3,9 +3,9 @@ const app = express();
 const port = 5000;
 
 const SaveCSV = require("./routes/saveCSV");
-const TableRequests = require("./routes/tableRequests");
+const Requests = require("./routes/Requests");
 
-app.use("", TableRequests);
+app.use("", Requests);
 app.use("", SaveCSV);
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));

@@ -13,8 +13,9 @@ export default class WorldSubscribers extends Component {
   }
 
   componentDidMount() {
-    axios.get("/wiki").then(res => {
-      this.setState({ data: res.data.data });
+    axios.get("/subcriptionData").then(res => {
+      console.log(res);
+      this.setState({ data: res.dataArray });
       this.chart();
     });
   }
@@ -22,13 +23,9 @@ export default class WorldSubscribers extends Component {
   chart = () => {
     var margin = { top: 20, right: 20, bottom: 50, left: 40 };
     let width =
-      document.getElementById("line").offsetWidth -
-      margin.left -
-      margin.right;
+      document.getElementById("line").offsetWidth - margin.left - margin.right;
     let height =
-      document.getElementById("line").offsetHeight -
-      margin.top -
-      margin.bottom;
+      document.getElementById("line").offsetHeight - margin.top - margin.bottom;
     var y = d3
       .scaleBand()
       .range([height, 0])
@@ -67,9 +64,7 @@ export default class WorldSubscribers extends Component {
       .attr("y1", "0")
       .attr("y2", -height);
 
-    svg
-      .select("path")
-      .attr("display", "none")
+    svg.select("path").attr("display", "none");
 
     // append the rectangles for the bar chart
     svg
@@ -82,7 +77,7 @@ export default class WorldSubscribers extends Component {
       .attr("y", function(d) {
         return y(d.year);
       })
-      .attr("rx",10)
+      .attr("rx", 10)
       .attr("height", y.bandwidth())
       .transition()
       .attr("width", function(d) {
@@ -95,9 +90,8 @@ export default class WorldSubscribers extends Component {
     svg
       .append("g")
       .call(d3.axisLeft(y))
-      .selectAll("line,path").style("display","none")
-      
-            
+      .selectAll("line,path")
+      .style("display", "none");
 
     //Bottom text
     svg

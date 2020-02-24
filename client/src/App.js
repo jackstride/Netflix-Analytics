@@ -1,11 +1,11 @@
 import React from "react";
 import "./index.css";
 
-import StockData from "./Components/stockData";
+import StockData from "./Components/StockData";
 import TopBar from "./Components/TopBar";
 import StreamingStats from "./Components/StreamingStats";
 import FitlerChart from "./Components/filterChart";
-import YearlySubscriptions from "./Components/yearlysub";
+import YearlySubscriptions from "./Components/YearlySubscriptions";
 
 function App() {
   return (
@@ -35,10 +35,9 @@ function App() {
           <div className="child"> </div> <div className="child"> </div>{" "}
         </div>{" "}
         <div className="grid_right">
-        <StreamingStats />
+          <StreamingStats />
         </div>
       </section>
-      
     </div>
   );
 }

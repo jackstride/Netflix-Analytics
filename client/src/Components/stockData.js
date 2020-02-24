@@ -14,6 +14,7 @@ export default class WorldSubscribers extends Component {
 
   componentDidMount() {
     axios.get("/stockData").then(res => {
+      console.log(res);
       this.setState({ data: res.data.dataArray });
       if (this.state.data.length > 1) {
         this.chart();
@@ -22,10 +23,8 @@ export default class WorldSubscribers extends Component {
   }
 
   chart = () => {
+    let data = this.state.data;
 
-
-    let data = this.state.data
-  
     var margin = { top: 20, right: 20, bottom: 50, left: 20 };
     let width =
       document.getElementById("example").offsetWidth -
@@ -56,10 +55,9 @@ export default class WorldSubscribers extends Component {
       .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-
     x.domain(
       d3.extent(this.state.data, function(d) {
-        return d.year
+        return d.year;
       })
     );
     y.domain([
@@ -68,7 +66,6 @@ export default class WorldSubscribers extends Component {
         return d.number;
       })
     ]);
-
 
     svg.selectAll("path").attr("display", "none");
 
