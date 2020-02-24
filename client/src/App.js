@@ -3,7 +3,7 @@ import "./index.css";
 
 import StockData from "./Components/StockData";
 import TopBar from "./Components/TopBar";
-import StreamingStats from "./Components/StreamingStats";
+import StreamingStats from "./Components/StreamingCompetition";
 import FitlerChart from "./Components/filterChart";
 import YearlySubscriptions from "./Components/YearlySubscriptions";
 

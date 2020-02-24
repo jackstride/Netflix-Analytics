@@ -13,9 +13,11 @@ const fs = require("fs");
 //   createdataArray("./data/stockdata.csv", res);
 // });
 
+//Cannot return data within the csv-parser function that's why it's repetitive
+// Maybe look at headers
+
 router.get("/StreamingCompetition", (req, res) => {
   let dataArray = [];
-
   fs.createReadStream("./data/StreamingCompetition.csv")
     .pipe(csv())
     .on("data", data => dataArray.push(data))
@@ -27,18 +29,16 @@ router.get("/StreamingCompetition", (req, res) => {
     });
 });
 
-// router.get("/subcriptionData", (req, res) => {
-//   createdataArray("./data/WorldwideSubscriptions.csv", res);
-// });
-
-createdataArray = (path, res) => {
+router.get("/subcriptionData", (req, res) => {
   let dataArray = [];
-  fs.createReadStream(path)
+  fs.createReadStream("./data/WorldwideSubscriptions.csv")
     .pipe(csv())
     .on("data", data => dataArray.push(data))
     .on("end", () => {
       res.status(200).json({ dataArray });
     });
-};
+});
+
+reatedataArray = path => {};
 
 module.exports = router;
