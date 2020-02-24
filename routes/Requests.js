@@ -13,17 +13,29 @@ const fs = require("fs");
 //   createdataArray("./data/stockdata.csv", res);
 // });
 
-router.get("/subcriptionData", (req, res) => {
-  createdataArray("./data/worldwide-subcriptions.csv", res);
+router.get("/StreamingCompetition", (req, res) => {
+  let dataArray = [];
+
+  fs.createReadStream("./data/StreamingCompetition.csv")
+    .pipe(csv())
+    .on("data", data => dataArray.push(data))
+    .on("end", () => {
+      let dataset = {
+        children: dataArray
+      };
+      res.status(200).json({ dataset });
+    });
 });
+
+// router.get("/subcriptionData", (req, res) => {
+//   createdataArray("./data/WorldwideSubscriptions.csv", res);
+// });
 
 createdataArray = (path, res) => {
   let dataArray = [];
-
   fs.createReadStream(path)
     .pipe(csv())
     .on("data", data => dataArray.push(data))
-    .on("data", data => console.log(data))
     .on("end", () => {
       res.status(200).json({ dataArray });
     });

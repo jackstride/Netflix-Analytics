@@ -8,12 +8,12 @@ export default class StreamingStats extends Component {
     super(props);
 
     this.state = {
-      data: []
+      data: ""
     };
   }
 
   componentDidMount() {
-    axios.get("/streaming").then(res => {
+    axios.get("/StreamingCompetition").then(res => {
       this.setState({ data: res.data.dataset });
       this.chart();
     });
@@ -34,6 +34,7 @@ export default class StreamingStats extends Component {
       .attr("class", "bubble");
 
     var nodes = d3.hierarchy(this.state.data).sum(function(d) {
+      console.log(d);
       return d.subscribers;
     });
 
@@ -56,23 +57,26 @@ export default class StreamingStats extends Component {
 
     node
       .append("circle")
-      .attr("class","bar")
+      .attr("class", "bar")
       .attr("r", function(d) {
         return d.r;
       })
       .on("mouseover", (d, i, nodes) => {
-        d3.select(nodes[i]).transition().duration(1500)
-        .attr("r", function(d) {
-          return d.r * 1.4;
-        })
+        d3.select(nodes[i])
+          .transition()
+          .duration(1500)
+          .attr("r", function(d) {
+            return d.r * 1.4;
+          });
       })
       .on("mouseout", (d, i, nodes) => {
-        d3.select(nodes[i]).transition().duration(1000)
-        .attr("r", function(d) {
-          return d.r
-        })
-      })
-      
+        d3.select(nodes[i])
+          .transition()
+          .duration(1000)
+          .attr("r", function(d) {
+            return d.r;
+          });
+      });
 
     node
       .append("text")
@@ -93,9 +97,7 @@ export default class StreamingStats extends Component {
   render() {
     return (
       <div className="container col-1">
-        <h1>
-          Video Streaming services
-        </h1>
+        <h1>Video Streaming services</h1>
         <div id="test"></div>
       </div>
     );

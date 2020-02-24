@@ -32,7 +32,7 @@ function App() {
           <div className="child"> </div> <div className="child"> </div>{" "}
           <div className="child"> </div> <div className="child"> </div>{" "}
         </div>{" "}
-        <div className="grid_right">{/* <StreamingStats /> */}</div>
+        <div className="grid_right">{<StreamingStats />}</div>
       </section>
     </div>
   );

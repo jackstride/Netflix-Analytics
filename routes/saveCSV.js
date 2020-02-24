@@ -8,7 +8,8 @@ const fs = require("fs");
 //Get wikipedia table for the amount of subscriptions across the globe from netflix
 router.get("/wiki", (req, res) => {
   rp("https://en.wikipedia.org/wiki/Netflix").then(page => {
-    let data = [];
+    let data = [{ year: "year", number: "number" }];
+
     cheerio("table.wikitable>tbody", page)
       .eq(-1)
       .find("tr")
@@ -28,8 +29,8 @@ router.get("/wiki", (req, res) => {
           number: number
         };
       });
-    data.splice(0, 1);
 
+    data.splice(0, 1);
     data = data
       .map(d => {
         return JSON.stringify(Object.values(d));
@@ -37,8 +38,7 @@ router.get("/wiki", (req, res) => {
       .join("\n")
       .replace(/(^\[)|(\]$)/gm, "");
 
-    console.log(data);
-
+    // Manually having to open the csv data and add the keys
     fs.writeFile("data/WorldwideSubscriptions.csv", data, "utf8", err => {
       err
         ? console.log(
@@ -48,7 +48,6 @@ router.get("/wiki", (req, res) => {
     });
   });
 });
-module.exports = router;
 
 // Competitor data according to VOD wikipedia
 router.get("/streaming", (req, res) => {
@@ -122,7 +121,23 @@ router.get("/streaming", (req, res) => {
     data.splice(0, 1);
     data = data.filter(data => data.subscribers != 0);
 
-    //Needed for d3 hierarchy
+    // data = data
+    //   .map(d => {
+    //     return JSON.stringify(Object.values(d));
+    //   })
+    //   .join("\n")
+    //   .replace(/(^\[)|(\]$)/gm, "");
+
+    // // Manually having to open the csv data and add the keys
+    // fs.writeFile("data/StreamingCompetition.csv", data, "utf8", err => {
+    //   err
+    //     ? console.log(
+    //         "There was an error saving CSV, most likely the wiki page has changed which is why I'm creating this function.."
+    //       )
+    //     : console.log("Save successful");
+    // });
+
+    // Needed for d3 hierarchy
     dataset = {
       children: data
     };
@@ -130,3 +145,5 @@ router.get("/streaming", (req, res) => {
     res.status(200).json({ dataset });
   });
 });
+
+module.exports = router;

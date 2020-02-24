@@ -15,7 +15,6 @@ export default class WorldSubscribers extends Component {
   componentDidMount() {
     axios.get("/subcriptionData").then(res => {
       this.setState({ data: res.data.dataArray });
-      console.log(this.state);
       this.chart();
     });
   }
