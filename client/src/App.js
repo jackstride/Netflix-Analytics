@@ -17,26 +17,22 @@ function App() {
           <div className="child"> </div> <div className="child"> </div>{" "}
         </div>{" "}
         <div className="grid_right">
-          <StockData />
-        </div>{" "}
-      </section>
-      <section className="second">
-        <div className="grid_left">
-          <div className="child"> </div> <div className="child"> </div>{" "}
-          <div className="child"> </div> <div className="child"> </div>{" "}
-        </div>{" "}
-        <div className="grid_right">
           <YearlySubscriptions />
-        </div>
+        </div>{" "}
       </section>
       <section className="second">
         <div className="grid_left">
           <div className="child"> </div> <div className="child"> </div>{" "}
           <div className="child"> </div> <div className="child"> </div>{" "}
         </div>{" "}
-        <div className="grid_right">
-          <StreamingStats />
-        </div>
+        <div className="grid_right">{/* <StockData /> */}</div>
+      </section>
+      <section className="second">
+        <div className="grid_left">
+          <div className="child"> </div> <div className="child"> </div>{" "}
+          <div className="child"> </div> <div className="child"> </div>{" "}
+        </div>{" "}
+        <div className="grid_right">{/* <StreamingStats /> */}</div>
       </section>
     </div>
   );

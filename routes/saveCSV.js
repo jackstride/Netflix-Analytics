@@ -37,6 +37,8 @@ router.get("/wiki", (req, res) => {
       .join("\n")
       .replace(/(^\[)|(\]$)/gm, "");
 
+    console.log(data);
+
     fs.writeFile("data/WorldwideSubscriptions.csv", data, "utf8", err => {
       err
         ? console.log(
@@ -44,7 +46,6 @@ router.get("/wiki", (req, res) => {
           )
         : console.log("Save successful");
     });
-    res.status(200).json({ data: data });
   });
 });
 module.exports = router;

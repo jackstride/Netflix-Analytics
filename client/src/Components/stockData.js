@@ -14,7 +14,6 @@ export default class WorldSubscribers extends Component {
 
   componentDidMount() {
     axios.get("/stockData").then(res => {
-      console.log(res);
       this.setState({ data: res.data.dataArray });
       if (this.state.data.length > 1) {
         this.chart();
