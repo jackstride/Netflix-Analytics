@@ -125,6 +125,8 @@ p {
 .partTwo {
   grid-area: graphTwo;
   background-color: blue;
+  width: 400px;
+  
 }
 
 
@@ -161,6 +163,18 @@ top: 20px;
 left: 20px;
   
 }
+
+
+
+/* Donut Chart */
+
+.partTwo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
 
 
 /* Second Chart */
