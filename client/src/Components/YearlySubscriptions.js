@@ -58,6 +58,17 @@ export default class WorldSubscribers extends Component {
       })
     ]);
     svg
+      .append("g")
+      // .select("g,domain")
+      // .attr("display", "none")
+      .call(d3.axisLeft(y))
+      .selectAll("line")
+      .attr("class", "linecolor")
+      .attr("x1", "0")
+      .attr("x1", width)
+      .attr("stroke-dasharray", "10")
+      .attr("stroke-width", ".5");
+    svg
       .selectAll(".bar")
       .data(this.state.data)
       .enter()
@@ -89,24 +100,12 @@ export default class WorldSubscribers extends Component {
       .selectAll("line,path")
       .style("display", "none");
 
-    // add the y Axis
-    svg
-      .append("g")
-      // .select("g,domain")
-      // .attr("display", "none")
-      .call(d3.axisLeft(y))
-      .selectAll("line")
-      .attr("class", "linecolor")
-      .attr("x1", "0")
-      .attr("x1", width)
-      .attr("stroke-dasharray", "10")
-      .attr("stroke-width", ".5");
+    svg.append("text");
   };
 
   render() {
     return (
       <div className="yearly">
-        <h1 style={{ padding: "20px" }}>Netflix Subscribers per year</h1>
         <div id="yearly_bar"></div>
       </div>
     );
