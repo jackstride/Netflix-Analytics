@@ -31,6 +31,10 @@ chart = () => {
     let duration = 750;
     let color = d3.scaleOrdinal(d3.schemeCategory10);
 
+    let scale = d3.scaleLinear()
+    .domain([0,100])
+    .range([0,  2 * Math.PI]);
+
     let radius = Math.min(width,height) /2;
 
     let svg = d3.select("#donutchart")
@@ -45,28 +49,80 @@ chart = () => {
     let arc = d3.arc()
     .innerRadius(radius - thickness)
     .outerRadius(radius)
+    .startAngle(scale(0))
+    .endAngle(scale(100))
 
+    let arc2 = d3.arc()
+    .innerRadius(radius - thickness)
+    .outerRadius(radius)
+    .startAngle(scale(0))
+    .endAngle((d,i,data) => {
+         return scale(d.IMDB_Rating)
+    })
 
-    let pie = d3.pie()
-    .value(function(d,i){
-    return d.IMDB_Rating
-    }).sort(ascending)
+    // let pie = d3.pie()
+    // .value(function(d,i){
+    // return d.IMDB_Rating
+    // }).sort(ascending)
 
-    let path = g.selectAll('path')
-    .data(pie(this.state.data))
-    .enter()
+    let path = g
     .append("g")
     .append('path')
     .attr('d', arc)
-    .attr('fill', (d,i) => color(i))
-    .each(function(d, i) { this._current = i; })
+    .attr('fill', '#323232')
+    
+    let g2 = g.append('g')
+    .attr("class", "test");
+
+
+    
+    let path2 = g2.selectAll("path")
+    .data(this.state.data)
+    .enter()
+    .append('path')
+    .attr('d', arc2)
+    .attr('fill', '#FF0055')
+    
+
+    let percent = g2.append("text").text("test").attr("class","donut_percent")
+
+
+    let text = d3.select(".partTwo").append("div").attr("class","donut_text")
+    .selectAll('text')
+    .data(this.state.data)
+    .enter()
+    .append("div").attr("class","donut_row")
+    .append("text")
+    .text((d) => {
+        return ` ${d.Title}`
+    })
+    .on("mouseover", (d,i,text2) => {
+        arc2.endAngle(scale(d.IMDB_Rating))
+        path2.transition().duration(100).attr('d', arc2)
+        percent.text(` ${d.IMDB_Rating}%`)
+
+
+    })
+
+
+
+
+
+    d3.selectAll(".donut_row").append("text").text((d) => {
+        return `${d.IMDB_Rating}`
+    })
+
+
+
+
+
     
 
 
     
 
 
-
+    
 }
 
 

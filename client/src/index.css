@@ -124,7 +124,7 @@ p {
 
 .partTwo {
   grid-area: graphTwo;
-  background-color: blue;
+  background-color: #0F0E1F;
   width: 400px;
   
 }
@@ -172,6 +172,35 @@ left: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column
+}
+
+
+.donut_text {
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0px;
+}
+
+.donut_row {
+  width: 100%;
+  display: flex;
+  flex-direction: row; 
+}
+
+
+
+.donut_text text {
+  font-size: 14px;
+    color: #676571;
+    letter-spacing: 0.2px;
+    font-weight: 400;
+}
+
+.donut_percent {
+  fill: white;
+  font-size: 28px;
 }
 
 
