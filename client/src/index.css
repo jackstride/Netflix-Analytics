@@ -119,12 +119,12 @@ p {
   grid-area: graphOne;
   background-color: #0F0E1F;
   border-radius: 12px;
+  
 }
 
-.test {
+.partTwo {
   grid-area: graphTwo;
   background-color: blue;
-  width: 300px;
 }
 
 
@@ -135,16 +135,19 @@ p {
   height: 100%;
   width: 100%;
   border-radius: 12px;
+  position: relative;
+  
 }
 
 #yearly_bar>svg {
-  height: 100%;
   width: 100%;
+  height: 100%;
   border-radius: 12px;
 }
 
 .bar {
   fill: #FF0055;
+  cursor: pointer;
 }
 
 
@@ -158,9 +161,6 @@ top: 20px;
 left: 20px;
   
 }
-
-
-
 
 
 /* Second Chart */

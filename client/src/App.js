@@ -6,6 +6,7 @@ import Header from "./Components/Header";
 import StreamingStats from "./Components/StreamingCompetition";
 import FitlerChart from "./Components/filterChart";
 import YearlySubscriptions from "./Components/YearlySubscriptions";
+import DonutChart from './Components/DonutChart'
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
       <Header />
       <section className="col-1 partone">
         <YearlySubscriptions />
-        <div className="test"></div>
+        <DonutChart />
       </section>
     </div>
   );

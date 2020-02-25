@@ -39,6 +39,17 @@ router.get("/subcriptionData", (req, res) => {
     });
 });
 
-reatedataArray = path => {};
+
+
+
+router.get("/bestNetflixShows" , (req,res) => {
+  let dataArray = [];
+  fs.createReadStream("./data/NetflixShows.csv")
+    .pipe(csv())
+    .on("data", data => dataArray.push(data))
+    .on("end", () => {
+      res.status(200).json({ dataArray });
+    });
+})
 
 module.exports = router;

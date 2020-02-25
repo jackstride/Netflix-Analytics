@@ -23,13 +23,9 @@ export default class WorldSubscribers extends Component {
   chart = () => {
     var margin = { top: 60, right: 20, bottom: 0, left: 70 };
     let width =
-      document.getElementById("yearly_bar").offsetWidth -
-      margin.left -
-      margin.right;
+      document.getElementById("yearly_bar").offsetWidth;
     let height =
-      document.getElementById("yearly_bar").offsetHeight -
-      margin.top -
-      margin.bottom;
+      document.getElementById("yearly_bar").offsetHeight;
 
     // set the ranges
     var x = d3
@@ -86,11 +82,11 @@ export default class WorldSubscribers extends Component {
       .on("mouseover", (d, i, svg) => {
       document.getElementsByClassName('year')[0].innerText = d.year;
       document.getElementsByClassName('users')[0].innerText = d.number + " Million Ussers"
-      d3.select(svg[i]).transition().duration(1500).attr("width", x.bandwidth() + 20)
+      d3.select(svg[i]).transition().delay(0).duration(1000).attr("height", height -20  - y(d.number))
       // one.text(d.number)
       })
       .on("mouseout", (d, i, svg) => {
-        d3.select(svg[i]).transition().duration(1500).attr("width", x.bandwidth() )
+        d3.select(svg[i]).transition().duration(100).attr("height", height - y(d.number))
         })
       .transition()
       .attr("y", function(d) {
