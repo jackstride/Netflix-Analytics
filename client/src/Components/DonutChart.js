@@ -56,9 +56,7 @@ chart = () => {
     .innerRadius(radius - thickness)
     .outerRadius(radius)
     .startAngle(scale(0))
-    .endAngle((d,i,data) => {
-         return scale(d.IMDB_Rating)
-    })
+    .endAngle(scale(50))
 
     // let pie = d3.pie()
     // .value(function(d,i){
@@ -76,15 +74,14 @@ chart = () => {
 
 
     
-    let path2 = g2.selectAll("path")
-    .data(this.state.data)
-    .enter()
+    let path2 = g2
     .append('path')
     .attr('d', arc2)
     .attr('fill', '#FF0055')
     
 
-    let percent = g2.append("text").text("test").attr("class","donut_percent")
+    let percent = g2.append("text").text("test").attr("class","donut_percent").attr("x", "-20");
+    let rating = percent.append("tspan").text("IMDB Rating").attr('y','20').attr("x","-30");
 
 
     let text = d3.select(".partTwo").append("div").attr("class","donut_text")
@@ -97,35 +94,18 @@ chart = () => {
         return ` ${d.Title}`
     })
     .on("mouseover", (d,i,text2) => {
-        arc2.endAngle(scale(d.IMDB_Rating))
-        path2.transition().duration(100).attr('d', arc2)
-        percent.text(` ${d.IMDB_Rating}%`)
-
-
+        arc2.endAngle(scale(d.IMDB_Rating));
+        path2.transition().duration(1000).attr('d', arc2);
+        percent.text(` ${d.IMDB_Rating}%`);
+        percent.append("tspan").text("IMDB Rating").attr('y','20').attr("x","-30");
     })
-
-
-
-
-
     d3.selectAll(".donut_row").append("text").text((d) => {
         return `${d.IMDB_Rating}`
     })
-
-
-
-
-
-    
-
-
-    
-
-
     
 }
 
-
+// d3 arc .transition
 
 
 

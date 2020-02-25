@@ -187,6 +187,7 @@ left: 20px;
   width: 100%;
   display: flex;
   flex-direction: row; 
+  cursor: pointer;
 }
 
 
@@ -200,7 +201,13 @@ left: 20px;
 
 .donut_percent {
   fill: white;
-  font-size: 28px;
+  font-size: 32px;
+}
+
+.donut_percent>tspan {
+  fill: #676571;
+  font-weight: 400;
+  font-size: 14px;
 }
 
 
