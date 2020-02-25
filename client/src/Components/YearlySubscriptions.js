@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { schemeGnBu } from "d3";
 const axios = require("axios");
 const d3 = require("d3");
 
@@ -57,10 +58,9 @@ export default class WorldSubscribers extends Component {
         return 190;
       })
     ]);
-    svg
+    
+      svg
       .append("g")
-      // .select("g,domain")
-      // .attr("display", "none")
       .call(d3.axisLeft(y))
       .selectAll("line")
       .attr("class", "linecolor")
@@ -68,6 +68,7 @@ export default class WorldSubscribers extends Component {
       .attr("x1", width)
       .attr("stroke-dasharray", "10")
       .attr("stroke-width", ".5");
+
     svg
       .selectAll(".bar")
       .data(this.state.data)
@@ -82,15 +83,24 @@ export default class WorldSubscribers extends Component {
       .attr("y", function(d) {
         return y(30);
       })
+      .on("mouseover", (d, i, svg) => {
+      document.getElementsByClassName('year')[0].innerText = d.year;
+      document.getElementsByClassName('users')[0].innerText = d.number + " Million Ussers"
+      d3.select(svg[i]).transition().duration(1500).attr("width", x.bandwidth() + 20)
+      // one.text(d.number)
+      })
+      .on("mouseout", (d, i, svg) => {
+        d3.select(svg[i]).transition().duration(1500).attr("width", x.bandwidth() )
+        })
       .transition()
       .attr("y", function(d) {
         return y(d.number);
       })
+
       .attr("height", function(d) {
         return height - y(d.number);
       })
-      .delay(500)
-      .duration(1500);
+      
 
     // add the x Axis
     svg
@@ -99,13 +109,16 @@ export default class WorldSubscribers extends Component {
       .call(d3.axisBottom(x))
       .selectAll("line,path")
       .style("display", "none");
-
-    svg.append("text");
   };
 
   render() {
     return (
       <div className="yearly">
+        <div className="yearly_info">
+          <h6>Netflix</h6>
+          <h1 className="year">2013</h1>
+          <h3 className="users">41.43 Million Users</h3>
+        </div>
         <div id="yearly_bar"></div>
       </div>
     );
