@@ -20,95 +20,94 @@ export default class WorldSubscribers extends Component {
   }
 
   chart = () => {
-    var margin = { top: 20, right: 20, bottom: 50, left: 40 };
+    var margin = { top: 60, right: 20, bottom: 0, left: 70 };
     let width =
-      document.getElementById("line").offsetWidth - margin.left - margin.right;
+      document.getElementById("yearly_bar").offsetWidth -
+      margin.left -
+      margin.right;
     let height =
-      document.getElementById("line").offsetHeight - margin.top - margin.bottom;
-    var y = d3
-      .scaleBand()
-      .range([height, 0])
-      .padding(0.7);
+      document.getElementById("yearly_bar").offsetHeight -
+      margin.top -
+      margin.bottom;
 
-    let x = d3.scaleLinear().range([0, width]);
+    // set the ranges
+    var x = d3
+      .scaleBand()
+      .range([0, width])
+      .padding(0.6);
+
+    var y = d3.scaleLinear().range([height, 0]);
 
     let svg = d3
-      .select("#line")
+      .select("#yearly_bar")
       .append("svg")
+      .attr("width", width)
+      .attr("height", height)
       .append("g")
-      .attr("transform", "translate(" + margin.left + "," + "0" + ")");
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-    // Scale the range of the data in the domains
-    x.domain([
-      0,
-      d3.max(this.state.data, function(d) {
-        return d.number;
-      })
-    ]);
-    y.domain(
+    x.domain(
       this.state.data.map(function(d) {
         return d.year;
       })
     );
-
-    // add the x Axis
-    svg
-      .append("g")
-      .attr("transform", "translate(0," + height + ")")
-      .call(d3.axisBottom(x))
-      .selectAll("line")
-      .attr("class", "linecolor")
-      .attr("stroke-dasharray", "10")
-      .attr("stroke-width", ".5")
-      .attr("y1", "0")
-      .attr("y2", -height);
-
-    svg.select("path").attr("display", "none");
-
-    // append the rectangles for the bar chart
+    y.domain([
+      30,
+      d3.max(this.state.data, function(d) {
+        return 190;
+      })
+    ]);
     svg
       .selectAll(".bar")
       .data(this.state.data)
       .enter()
       .append("rect")
       .attr("class", "bar")
-      // .attr("x", function(d) { return x(d.number); })
-      .attr("y", function(d) {
-        return y(d.year);
+      .attr("x", function(d) {
+        return x(d.year);
       })
-      .attr("rx", 10)
-      .attr("height", y.bandwidth())
+      .attr("rx", "5")
+      .attr("width", x.bandwidth())
+      .attr("y", function(d) {
+        return y(30);
+      })
       .transition()
-      .attr("width", function(d) {
-        return x(d.number);
+      .attr("y", function(d) {
+        return y(d.number);
+      })
+      .attr("height", function(d) {
+        return height - y(d.number);
       })
       .delay(500)
       .duration(1500);
 
-    // add the y Axis
+    // add the x Axis
     svg
       .append("g")
-      .call(d3.axisLeft(y))
+      .attr("transform", "translate(0," + height + ")")
+      .call(d3.axisBottom(x))
       .selectAll("line,path")
       .style("display", "none");
 
-    //Bottom text
+    // add the y Axis
     svg
-      .append("text")
-      .attr("transform", "rotate(0)")
-      .attr("x", width / 2)
-      .attr("y", height + 30)
-      .attr("dy", "1em")
-      .attr("fill", "#ffffff")
-      .attr("height", "50")
-      .style("text-anchor", "middle")
-      .text("Views per billion");
+      .append("g")
+      // .select("g,domain")
+      // .attr("display", "none")
+      .call(d3.axisLeft(y))
+      .selectAll("line")
+      .attr("class", "linecolor")
+      .attr("x1", "0")
+      .attr("x1", width)
+      .attr("stroke-dasharray", "10")
+      .attr("stroke-width", ".5");
   };
+
   render() {
     return (
-      <div className="container col-1">
+      <div className="yearly">
         <h1 style={{ padding: "20px" }}>Netflix Subscribers per year</h1>
-        <div id="line"></div>
+        <div id="yearly_bar"></div>
       </div>
     );
   }

@@ -11,6 +11,10 @@ function App() {
   return (
     <div className="app_container">
       <Header />
+      <section className="col-1 partone">
+        <YearlySubscriptions />
+        <div className="test"></div>
+      </section>
     </div>
   );
 }

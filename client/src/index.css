@@ -83,6 +83,35 @@ p {
 
 }
 
+/* Sections */
+
+.col-1 {
+  width: 100%;
+  height: 500px;
+}
+
+
+.partone {
+  display: grid;
+  grid-template-areas:
+    "graphOne graphOne graphTwo"
+    "graphOne graphOne graphTwo";
+  gap: 1vw;
+}
+
+.yearly {
+  grid-area: graphOne;
+  background-color: #0F0E1F;
+  border-radius: 12px;
+}
+
+.test {
+  grid-area: graphTwo;
+  background-color: blue;
+  width: 300px;
+}
+
+
 /* First Chart */
 #example {
   height: 100%;
@@ -90,13 +119,13 @@ p {
   border-radius: 12px;
 }
 
-#line {
+#yearly_bar {
   height: 100%;
   width: 100%;
   border-radius: 12px;
 }
 
-#line>svg {
+#yearly_bar>svg {
   height: 100%;
   width: 100%;
   border-radius: 12px;
@@ -108,7 +137,7 @@ p {
 }
 
 .bar {
-  fill: #c81912;
+  fill: #FF0055;
 }
 
 
@@ -119,4 +148,9 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+
+.domain {
+  display: none;
 }
