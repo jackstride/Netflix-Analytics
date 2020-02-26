@@ -235,12 +235,16 @@ left: 20px;
   display: none;
 }
 
-
+.tooltip_header {
+  font-size: 12px;
+  fill: #FF0055;
+  font-weight: 600;
+}
 
 .tooltip {
   position: absolute;
-  width: 350px;
-  height: 150px;
+  width: 325px;
+  height: 125px;
   background-color: #F2F9FF;
   pointer-events: none;
   border-radius: 12px;

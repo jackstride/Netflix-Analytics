@@ -91,15 +91,15 @@ export default class StreamingStats extends Component {
         text.append("text").attr("x","20").attr("dy", "35").attr("class","bubblesub").text(d.data.parent)
 
         text.append("text").attr("class","startDate").attr("x","20").attr("y", "60")
-        text.select(".startDate").append("tspan").text("Launch Date: ")
+        text.select(".startDate").append("tspan").attr("class","tooltip_header").text("Launch Date: ")
         text.select(".startDate").append("tspan").text(d.data.launchDate)
 
         text.append("text").attr("class","subs").attr("x","20").attr("y", "80")
-        text.select(".subs").append("tspan").text("Subscribers: ")
+        text.select(".subs").append("tspan").attr("class","tooltip_header").text("Subscribers(Million): ")
         text.select(".subs").append("tspan").text(d.data.subscribers)
 
         text.append("text").attr("class","area").attr("x","20").attr("y", "100")
-        text.select(".area").append("tspan").text("Area Coverage: ")
+        text.select(".area").append("tspan").attr("class","tooltip_header").text("Area Coverage: ")
         text.select(".area").append("tspan").text(d.data.area)
         
       })
