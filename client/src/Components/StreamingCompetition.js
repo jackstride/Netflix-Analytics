@@ -55,20 +55,13 @@ export default class StreamingStats extends Component {
       return d.data.subscribers;
     });
 
-    // let box = d3.select("node")
-    // .append("rect")
-    // .attr("class", "test")
-    // .attr('x',(d) => {
-      
-      
-    // })
 
 
-    let tooltip = d3.select("body").append("div").attr("class","testdiv").style("visibility","hidden")
+    let tooltip = d3.select("body").append("div").attr("class","tooltip").style("visibility","hidden")
 
-    let text = d3.select(".testdiv")
+    let text = d3.select(".tooltip")
     .append("svg")
-    .attr("text-anchor", "middle")
+    .attr("dominant-baseline","middle").attr("width","100%").attr("height", "fit-content")
     
       
 
@@ -88,22 +81,29 @@ export default class StreamingStats extends Component {
           return d3.event.pageY + "px"
         });
 
+        text.select(".bubbleTitle").remove();
+        text.select(".bubblesub").remove();
         text.select("text").remove();
-        text.append("text").text(d.data.parent)
-        .attr("class","bubble_text")
-        .attr("x","0")
-        .attr("y", "0")
-        text.select("text").append("tspan").text(d.data.parent)
-        text.select("text").append("tspan").text(d.data.service)
-        text.select("text").append("tspan").text(d.data.launchDate)
-        text.select("text").append("tspan").text(d.data.subscribers)
-        text.select("text").append("tspan").text(d.data.area)
-        text.select("text").selectAll("tspan").attr("x","50").attr("dy", "15")
+        text.select(".subs").remove();
+        text.select(".area").remove();
 
+        text.append("text").attr("x","20").attr("dy", "20").attr("class","bubbleTitle").text(d.data.service)
+        text.append("text").attr("x","20").attr("dy", "35").attr("class","bubblesub").text(d.data.parent)
+
+        text.append("text").attr("class","startDate").attr("x","20").attr("y", "60")
+        text.select(".startDate").append("tspan").text("Launch Date: ")
+        text.select(".startDate").append("tspan").text(d.data.launchDate)
+
+        text.append("text").attr("class","subs").attr("x","20").attr("y", "80")
+        text.select(".subs").append("tspan").text("Subscribers: ")
+        text.select(".subs").append("tspan").text(d.data.subscribers)
+
+        text.append("text").attr("class","area").attr("x","20").attr("y", "100")
+        text.select(".area").append("tspan").text("Area Coverage: ")
+        text.select(".area").append("tspan").text(d.data.area)
         
       })
       .on("mouseout", (d, i, nodes) => {
-        text.select("text").remove();
         tooltip.style("visibility","hidden");
       });
 
