@@ -15,6 +15,7 @@ export default class StreamingStats extends Component {
   componentDidMount() {
     axios.get("/StreamingCompetition").then(res => {
       this.setState({ data: res.data.dataset });
+      console.log(this.state)
       this.chart();
     });
   }
@@ -96,10 +97,7 @@ export default class StreamingStats extends Component {
 
   render() {
     return (
-      <div className="container col-1">
-        <h1>Video Streaming services</h1>
         <div id="test"></div>
-      </div>
     );
   }
 }

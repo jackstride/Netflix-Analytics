@@ -16,6 +16,9 @@ function App() {
         <YearlySubscriptions />
         <DonutChart />
       </section>
+      <section className="col-1 cicrle_group">
+        <StreamingStats />
+      </section>
     </div>
   );
 }
