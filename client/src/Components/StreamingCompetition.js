@@ -15,27 +15,26 @@ export default class StreamingStats extends Component {
   componentDidMount() {
     axios.get("/StreamingCompetition").then(res => {
       this.setState({ data: res.data.dataset });
-      console.log(this.state)
       this.chart();
     });
   }
 
   chart = () => {
-    var diameter = document.getElementById("test").offsetHeight;
+    var diameter = document.getElementById("bubbleChart").offsetHeight;
+    
     var bubble = d3
       .pack(this.state.data)
       .size([diameter, diameter])
-      .padding(50);
+      .padding(10);
 
     var svg = d3
-      .select("#test")
+      .select("#bubbleChart")
       .append("svg")
       .attr("width", diameter)
       .attr("height", diameter)
       .attr("class", "bubble");
 
     var nodes = d3.hierarchy(this.state.data).sum(function(d) {
-      console.log(d);
       return d.subscribers;
     });
 
@@ -50,33 +49,62 @@ export default class StreamingStats extends Component {
       .attr("class", "node")
       .attr("transform", function(d) {
         return "translate(" + d.x + "," + d.y + ")";
-      });
+      }).attr("cursor","pointer")
 
     node.append("title").text(function(d) {
       return d.data.subscribers;
     });
 
+    // let box = d3.select("node")
+    // .append("rect")
+    // .attr("class", "test")
+    // .attr('x',(d) => {
+      
+      
+    // })
+
+
+    let tooltip = d3.select("body").append("div").attr("class","testdiv").style("visibility","hidden")
+
+    let text = d3.select(".testdiv")
+    .append("svg")
+    .attr("text-anchor", "middle")
+    
+      
+
     node
       .append("circle")
-      .attr("class", "bar")
       .attr("r", function(d) {
         return d.r;
       })
-      .on("mouseover", (d, i, nodes) => {
-        d3.select(nodes[i])
-          .transition()
-          .duration(1500)
-          .attr("r", function(d) {
-            return d.r * 1.4;
-          });
+      .style("stroke","#FF0055")
+      .style("fill", "transparent")
+      .on("mousemove", (d, i, nodes) => {
+        tooltip
+        .style("visibility", "visible")
+        .style("left", () => {
+          return d3.event.pageX + "px"
+        }).style("top", () => {
+          return d3.event.pageY + "px"
+        });
+
+        text.select("text").remove();
+        text.append("text").text(d.data.parent)
+        .attr("class","bubble_text")
+        .attr("x","0")
+        .attr("y", "0")
+        text.select("text").append("tspan").text(d.data.parent)
+        text.select("text").append("tspan").text(d.data.service)
+        text.select("text").append("tspan").text(d.data.launchDate)
+        text.select("text").append("tspan").text(d.data.subscribers)
+        text.select("text").append("tspan").text(d.data.area)
+        text.select("text").selectAll("tspan").attr("x","50").attr("dy", "15")
+
+        
       })
       .on("mouseout", (d, i, nodes) => {
-        d3.select(nodes[i])
-          .transition()
-          .duration(1000)
-          .attr("r", function(d) {
-            return d.r;
-          });
+        text.select("text").remove();
+        tooltip.style("visibility","hidden");
       });
 
     node
@@ -86,18 +114,14 @@ export default class StreamingStats extends Component {
       .text(function(d) {
         return d.data.service;
       })
-      .attr("font-family", "sans-serif")
-      .attr("font-size", function(d) {
-        return d.r / 5;
-      })
-      .attr("fill", "black");
+      .attr("fill", "white");
 
     d3.select(this.frameElement).style("height", diameter + "px");
   };
 
   render() {
     return (
-        <div id="test"></div>
+        <div id="bubbleChart"></div>
     );
   }
 }
