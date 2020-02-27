@@ -91,7 +91,7 @@ export default class WorldSubscribers extends Component {
       .transition()
       .attr("y", function(d) {
         return y(d.number);
-      })
+      }).duration(1000)
 
       .attr("height", function(d) {
         return height - y(d.number);
