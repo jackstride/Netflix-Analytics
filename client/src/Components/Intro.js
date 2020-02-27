@@ -1,5 +1,5 @@
 import React, {useState,useEffect} from 'react'
-import HOC from '../images/hoc.png'
+import HOC from '../images/hoc3.png'
 
 
 let Intro = (props) => {    
@@ -8,7 +8,7 @@ let Intro = (props) => {
 
         // Fixed issue with scrolling
         //https://stackoverflow.com/questions/1174863/javascript-scrollto-method-does-nothing
-        // window.focus();
+        window.focus();
         window.scrollTo(0,0);
 
 
@@ -23,7 +23,8 @@ let Intro = (props) => {
     return(
         <div className="app_intro">
             <img src={HOC}></img>
-            <span className="intro_text">The Rise &amp; <br></br> Success of Netflix</span>
+            <span className="intro_text">The Rise <br></br>&amp; Success <br></br>of Netflix</span>
+            <hr className="title_hr"></hr>
             </div>
     )
 

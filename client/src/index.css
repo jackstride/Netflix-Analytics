@@ -9,20 +9,21 @@ body {
 }
 
 h1 {
-font-size: 28px;
+  font-size: 98px;
+  color: #D0021B;
+  font-weight: 700;
+  line-height: 110px;
+}
+
+h2 {
+  font-size: 28px;
 color: #F2F9FF;
 letter-spacing: 0.18px;
 font-weight: 400;
 }
 
-h2 {
-  color: white;
-  font-size: 18px;
-  font-weight: normal;
-}
-
 h3 {
-font-size: 14px;
+font-size: 15px;
 color: #FF0055;
 letter-spacing: 0.1px;
 font-weight: 400;
@@ -63,42 +64,48 @@ p {
 .app_intro {
   height: 100vh;
   width: 100%;
-  background-color: #D0021B;
+  background-color: #0C0B1A;
   position: relative;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 
 .app_intro img {
   position: absolute;
-  mix-blend-mode: multiply;
-  height: 1200px;
+  height: 90vh;
   width: auto;
   left: 0;
   right: 0;
   bottom: 0;
   margin-left: auto;  
   margin-right: auto;
+  opacity: .7;
+  mix-blend-mode: lighten;
 }
 
 
 .app_intro span {
-  position: absolute;
-  font-size: 98px;
-  color: white;
+  font-size: 112px;
+  color: rgb(255, 217, 221);
   font-weight: 700;
   text-align: center;
-  margin: auto;
   z-index: 1;
-  left: 0;
-  right: 0;
-  top: 40%;
-  bottom: 0;
+  line-height: 140px;
+  opacity: .9;
 }
 
 .shrink {
   height: 0;
   transition: height 1.5s ease-in-out;
+}
+
+.title_hr {
+  width: 200px;
+  border-top: 1px solid white;
 }
 
 
@@ -150,15 +157,6 @@ p {
 
 
 
-/* Title */
-.title {
-  font-size: 98px;
-  color: #D0021B;
-  font-weight: 700;
-  line-height: 110px;
-}
-
-
 /* Sections */
 
 .col-1 {
@@ -181,6 +179,7 @@ p {
 
 .graph_title:nth-child(2) {
   grid-area: TitleTwo;
+  justify-self: center;
 }
 
 .yearly {
@@ -193,9 +192,10 @@ p {
 .partTwo {
   grid-area: graphTwo;
   background-color: #0F0E1F;
-  width: 400px;
-  height: 500px;
+  width: 100%;
+  height: 600px;
 }
+
 
 
 /* First Chart */
@@ -256,14 +256,24 @@ left: 20px;
   display: flex;
   flex-direction: row; 
   cursor: pointer;
+  padding: 2px 0px;
+}
+
+.donut_row:hover {
+  background-color: #212036;
+  border-radius: 8px;
 }
 
 
+.donut_row tspan {
+  color: #FF0055;
+  margin-right: 10px;
+}
 
 .donut_text text {
-  font-size: 14px;
-    color: #676571;
-    letter-spacing: 0.2px;
+  font-size: 15px;
+    color: white;
+    letter-spacing: .5px;
     font-weight: 400;
 }
 
@@ -274,7 +284,7 @@ left: 20px;
 
 .donut_percent>tspan {
   fill: #676571;
-  font-weight: 400;
+  font-weight: 600;
   font-size: 14px;
 }
 

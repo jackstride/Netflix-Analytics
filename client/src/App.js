@@ -18,18 +18,19 @@ let App = () => {
     <div className="app_container">
       <Header />
       <div className="a_question">
-        <span class="title">The Growth<br></br> of Netflix.</span>
+        <h1 className="title">The Growth<br></br> of Netflix.</h1>
       </div>
       <section className="col-1 partone">
         <div className="graph_title">
-          <h1>Netflix Subscriptions by Year</h1>
+          <h2>Netflix Subscriptions by Year</h2>
         </div>
         <div className="graph_title">
-          <h1>High Rated IMDB Shows</h1>
+          <h2>Shows rated by IMDB</h2>
         </div>
         <YearlySubscriptions />
         <DonutChart />
       </section>
+      <h2>Who are the competition</h2>
       <section className="col-1 cicrle_group">
         <StreamingStats />
       </section>

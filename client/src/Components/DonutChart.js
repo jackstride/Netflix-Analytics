@@ -41,7 +41,7 @@ chart = () => {
     .append('svg')
     .attr("class","pie")
     .attr("height",height)
-    .attr("width",width);
+    .attr("width","width");
     
     let g = svg.append('g')
     .attr('transform', 'translate(' + (width/2) + ',' + (height/2) + ')');
@@ -80,9 +80,8 @@ chart = () => {
     .attr('fill', '#FF0055')
     
 
-    let percent = g2.append("text").text("test").attr("class","donut_percent").attr("x", "-20");
+    let percent = g2.append("text").text("50%").attr("class","donut_percent").attr("x", "-30").attr("text-align","center")
     let rating = percent.append("tspan").text("IMDB Rating").attr('y','20').attr("x","-30");
-
 
     let text = d3.select(".partTwo").append("div").attr("class","donut_text")
     .selectAll('text')
@@ -97,12 +96,8 @@ chart = () => {
         arc2.endAngle(scale(d.IMDB_Rating));
         path2.transition().duration(1000).attr('d', arc2);
         percent.text(` ${d.IMDB_Rating}%`);
-        percent.append("tspan").text("IMDB Rating").attr('y','20').attr("x","-30");
+        percent.append("tspan").text("IMDB Rating").attr('y','20').attr("x","-40");
     })
-    d3.selectAll(".donut_row").append("text").text((d) => {
-        return `${d.IMDB_Rating}`
-    })
-    
 }
 
 // d3 arc .transition
@@ -114,6 +109,7 @@ chart = () => {
 
     render() {
         return (
+
             <div className="partTwo">
                 <div id="donutchart"></div>
             </div>

@@ -112,7 +112,7 @@ export default class WorldSubscribers extends Component {
       <div className="yearly">
         <div className="yearly_info">
           <h6>Netflix</h6>
-          <h1 className="year">2013</h1>
+          <h2 className="year">2013</h2>
           <h3 className="users">41.43 Million Users</h3>
         </div>
         <div id="yearly_bar"></div>
