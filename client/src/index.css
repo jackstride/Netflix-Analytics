@@ -125,7 +125,7 @@ p {
 }
 
 .span_analytics {
-  color: #FF0055;
+  color: #D0021B;
   padding-top: 5px;
   font-weight: 500;
   font-size: 14px;
@@ -168,9 +168,19 @@ p {
 .partone {
   display: grid;
   grid-template-areas:
+    "TitleOne TitleOne TitleTwo"
     "graphOne graphOne graphTwo"
     "graphOne graphOne graphTwo";
   gap: 1vw;
+}
+
+
+.graph_title {
+  grid-area: TitleOne;
+}
+
+.graph_title:nth-child(2) {
+  grid-area: TitleTwo;
 }
 
 .yearly {

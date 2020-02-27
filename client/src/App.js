@@ -21,6 +21,12 @@ let App = () => {
         <span class="title">The Growth<br></br> of Netflix.</span>
       </div>
       <section className="col-1 partone">
+        <div className="graph_title">
+          <h1>Netflix Subscriptions by Year</h1>
+        </div>
+        <div className="graph_title">
+          <h1>High Rated IMDB Shows</h1>
+        </div>
         <YearlySubscriptions />
         <DonutChart />
       </section>
