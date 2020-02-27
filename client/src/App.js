@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useRef,useEffect, forwardRef} from "react";
 import "./index.css";
 
 import StockData from "./Components/StockData";
@@ -9,14 +9,16 @@ import YearlySubscriptions from "./Components/YearlySubscriptions";
 import DonutChart from './Components/DonutChart'
 import Intro from './Components/Intro'
 
-function App() {
+let App = () => {
+  
+  
   return (
     <div>
     <Intro />
     <div className="app_container">
       <Header />
       <div className="a_question">
-        <h1>The rise & success of Netlfix.</h1>
+        <span class="title">The Growth<br></br> of Netflix.</span>
       </div>
       <section className="col-1 partone">
         <YearlySubscriptions />

@@ -2,15 +2,20 @@ import React, {useState,useEffect} from 'react'
 import HOC from '../images/hoc.png'
 
 
-let Intro = () => {
-
-    const [isShown, setShown] = useState(true)
+let Intro = (props) => {    
 
     useEffect(() => {
-        let bg = document.querySelector('.app_intro');
-        bg.classList.add("test")
 
-        
+        // Fixed issue with scrolling
+        //https://stackoverflow.com/questions/1174863/javascript-scrollto-method-does-nothing
+        // window.focus();
+        window.scrollTo(0,0);
+
+
+        let bg = document.querySelector('.app_intro');
+        document.addEventListener("mousewheel" , () => {    
+            bg.classList.add("shrink");
+        })
     },[])
 
 
@@ -18,7 +23,7 @@ let Intro = () => {
     return(
         <div className="app_intro">
             <img src={HOC}></img>
-            <span className="intro_text">The Rise and <br></br> Success of Netflix</span>
+            <span className="intro_text">The Rise &amp; <br></br> Success of Netflix</span>
             </div>
     )
 
