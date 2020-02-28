@@ -61,8 +61,7 @@ export default class StreamingStats extends Component {
 
     let text = d3.select(".tooltip")
     .append("svg")
-    .attr("dominant-baseline","middle").attr("width","100%").attr("height", "fit-content")
-    
+    .attr("dominant-baseline","middle").attr("width","100%")
       
 
     node

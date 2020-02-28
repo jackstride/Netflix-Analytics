@@ -52,4 +52,18 @@ router.get("/bestNetflixShows" , (req,res) => {
     });
 })
 
+
+
+
+
+router.get("/stockData", (req,res) => {
+  let dataArray = [];
+  fs.createReadStream("./data/StockData.csv")
+    .pipe(csv())
+    .on("data", data => dataArray.push(data))
+    .on("end", () => {
+      res.status(200).json({ dataArray });
+    });
+})
+
 module.exports = router;

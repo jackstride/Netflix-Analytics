@@ -15,22 +15,35 @@ export default class WorldSubscribers extends Component {
   componentDidMount() {
     axios.get("/stockData").then(res => {
       this.setState({ data: res.data.dataArray });
-      if (this.state.data.length > 1) {
         this.chart();
-      }
+        console.log(this.state)
     });
   }
 
+
+  getYear = (year) => {
+
+    let start = new Date ("01/01/" + year)
+    let end = new Date ("12/31/" + year)
+
+    let data = this.state.data.filter(data => new Date(data.Date) >= start && new Date(data.Date) <= end) // One way???
+
+    console.log(data)
+     return data;
+  }
+
   chart = () => {
+
+    this.getYear(2017);
     let data = this.state.data;
 
     var margin = { top: 20, right: 20, bottom: 50, left: 20 };
     let width =
-      document.getElementById("example").offsetWidth -
+      document.getElementById("stockData").offsetWidth -
       margin.left -
       margin.right;
     let height =
-      document.getElementById("example").offsetHeight -
+      document.getElementById("stockData").offsetHeight -
       margin.top -
       margin.bottom;
 
@@ -47,7 +60,7 @@ export default class WorldSubscribers extends Component {
       });
 
     var svg = d3
-      .select("#example")
+      .select("#stockData")
       .append("svg")
       .attr("width", width + margin.left + margin.right)
       .attr("height", height + margin.top + margin.bottom)
@@ -97,8 +110,7 @@ export default class WorldSubscribers extends Component {
   render() {
     return (
       <div className="container col-1">
-        <h1 style={{ padding: "20px" }}>Netflix Subscribers per year</h1>
-        <div id="example"></div>
+        <div id="stockData"></div>
       </div>
     );
   }

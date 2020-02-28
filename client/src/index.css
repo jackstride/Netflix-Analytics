@@ -90,17 +90,29 @@ p {
 
 .app_intro span {
   font-size: 112px;
-  color: rgb(255, 217, 221);
+  /* color: rgb(255, 217, 221); */
+  color: #f8f8f8;
   font-weight: 700;
   text-align: center;
   z-index: 1;
   line-height: 140px;
-  opacity: .9;
+  animation: fadeIn 1s;
+}
+
+
+@keyframes fadeIn{
+  from {opacity: 0;}
+  to {opacity: .9;}
+
 }
 
 .shrink {
   height: 0;
-  transition: height 1.5s ease-in-out;
+  /* -webkit-transition: height .5s linear;
+    -moz-transition: height .5s linear;
+    -o-transition: height .5s linear; */
+  transition: height 1s;
+  transition-delay: 1s;
 }
 
 .title_hr {
@@ -348,4 +360,20 @@ left: 20px;
 .bubblesub {
   font-size: 12px;
   fill: #676571;
+}
+
+
+
+/* Stock CHart */
+
+
+.stock {
+
+  width: 100%;
+  height: 700px;
+  background-color: #0F0E1F;
+  border-radius: 12px;
+  margin-top: 20px;
+  margin-bottom: 100px;
+
 }

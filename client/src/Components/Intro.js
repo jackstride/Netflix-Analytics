@@ -8,13 +8,17 @@ let Intro = (props) => {
 
         // Fixed issue with scrolling
         //https://stackoverflow.com/questions/1174863/javascript-scrollto-method-does-nothing
+
+        // if ('scrollRestoration' in window.history) {
+        //     window.history.scrollRestoration = 'manual'
+        //   }
         window.focus();
         window.scrollTo(0,0);
 
         let bg = document.querySelector('.app_intro');
-        document.addEventListener("mousewheel" , () => {    
+        
             bg.classList.add("shrink");
-        })
+
     },[])
 
 
@@ -26,8 +30,6 @@ let Intro = (props) => {
             <hr className="title_hr"></hr>
             </div>
     )
-
-
 }
 
 

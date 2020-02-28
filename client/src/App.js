@@ -32,7 +32,10 @@ let App = () => {
       </section>
       <h2>Who are the competition</h2>
       <section className="col-1 cicrle_group">
-        <StreamingStats />
+        <StreamingStats />        
+      </section>
+      <section className="col-1 stock">
+        <StockData />
       </section>
     </div>
     </div>
