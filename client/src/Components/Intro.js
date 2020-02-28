@@ -11,7 +11,6 @@ let Intro = (props) => {
         window.focus();
         window.scrollTo(0,0);
 
-
         let bg = document.querySelector('.app_intro');
         document.addEventListener("mousewheel" , () => {    
             bg.classList.add("shrink");

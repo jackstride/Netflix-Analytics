@@ -37,11 +37,14 @@ chart = () => {
 
     let radius = Math.min(width,height) /2;
 
+    // Svg
     let svg = d3.select("#donutchart")
     .append('svg')
     .attr("class","pie")
     .attr("height",height)
-    .attr("width","width");
+    .attr("width", width)
+    .attr("dominant-baseline","middle")
+    
     
     let g = svg.append('g')
     .attr('transform', 'translate(' + (width/2) + ',' + (height/2) + ')');
@@ -80,8 +83,8 @@ chart = () => {
     .attr('fill', '#FF0055')
     
 
-    let percent = g2.append("text").text("50%").attr("class","donut_percent").attr("x", "-30").attr("text-align","center")
-    let rating = percent.append("tspan").text("IMDB Rating").attr('y','20').attr("x","-30");
+    let percent = svg.append("text").text("50%").attr("class","donut_percent").attr("text-anchor","middle").attr("x", "50%").attr("y", "50%").attr("dominant-baseline","middle")
+    let rating = percent.append("tspan").text("IMDB Rating").attr("text-anchor","middle").attr("x", "50%").attr("y", "60%")
 
     let text = d3.select(".partTwo").append("div").attr("class","donut_text")
     .selectAll('text')
@@ -92,11 +95,11 @@ chart = () => {
     .text((d) => {
         return ` ${d.Title}`
     })
-    .on("mouseover", (d,i,text2) => {
+    .on("mouseover", (d,i) => {
         arc2.endAngle(scale(d.IMDB_Rating));
         path2.transition().duration(1000).attr('d', arc2);
         percent.text(` ${d.IMDB_Rating}%`);
-        percent.append("tspan").text("IMDB Rating").attr('y','20').attr("x","-40");
+        percent.append("tspan").text(d.Title).attr("text-anchor","middle").attr("x", "50%").attr("y", "60%")
     })
 }
 
