@@ -14,7 +14,7 @@ let App = () => {
   
   return (
     <div>
-    <Intro />
+    {/* <Intro /> */}
     <div className="app_container">
       <Header />
       <div className="a_question">
