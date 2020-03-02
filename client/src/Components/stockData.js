@@ -50,7 +50,7 @@ export default class WorldSubscribers extends Component {
       .attr("width", width + margin.left + margin.right)
       .attr("height", height + margin.top + margin.bottom)
       .append("g")
-      .attr("transform", "translate(150,20)");
+      .attr("transform", "translate(100,20)");
 
     let stockTooltip = d3
       .select("body")
