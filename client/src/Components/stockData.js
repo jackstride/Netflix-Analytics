@@ -105,20 +105,40 @@ export default class WorldSubscribers extends Component {
 
     svg
       .append("g")
+      .attr("class", "x-axis")
       .attr("transform", "translate(0," + height + ")")
       .call(d3.axisBottom(x));
 
-    svg.append("g").call(d3.axisLeft(y));
+    svg
+      .append("g")
+      .attr("class", "y-axis")
+      .call(d3.axisLeft(y));
 
     let update = option => {
-      let start = new Date("01/01/" + option);
-      let end = new Date("12/31/" + option);
+      if (option == "0") {
+        line.attr("d", valueline(data));
+      } else {
+        let start = new Date("01/01/" + option);
+        let end = new Date("12/31/" + option);
 
-      let newData = data.filter(data => {
-        return new Date(data.date) >= start && new Date(data.date) <= end;
-      });
-
-      line.attr("d", valueline(newData));
+        let newData = data.filter(data => {
+          return new Date(data.date) >= start && new Date(data.date) <= end;
+        });
+        x.domain(
+          d3.extent(newData, function(d) {
+            return d.date;
+          })
+        );
+        y.domain([
+          0,
+          d3.max(newData, function(d) {
+            return d.Close;
+          })
+        ]);
+        svg.select(".x-axis").call(d3.axisBottom(x));
+        svg.select(".y-axis").call(d3.axisLeft(y));
+        line.attr("d", valueline(newData));
+      }
     };
 
     d3.select(".stock_toggles>select").on("change", (d, i, nodes) => {
