@@ -96,6 +96,7 @@ p {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 0.9;
   }
@@ -125,7 +126,7 @@ p {
   justify-content: space-between;
 }
 
-.header > img {
+.header>img {
   height: 100px;
 }
 
@@ -202,7 +203,7 @@ p {
   position: relative;
 }
 
-#yearly_bar > svg {
+#yearly_bar>svg {
   width: 100%;
   height: 100%;
   border-radius: 12px;
@@ -213,7 +214,7 @@ p {
   cursor: pointer;
 }
 
-.yearly_info > * {
+.yearly_info>* {
   padding: 2.5px 0px;
 }
 
@@ -269,7 +270,7 @@ p {
   font-size: 32px;
 }
 
-.donut_percent > tspan {
+.donut_percent>tspan {
   fill: #676571;
   font-weight: 600;
   font-size: 14px;
@@ -362,4 +363,19 @@ p {
   pointer-events: none;
   border-radius: 12px;
   transform: translate(10px, 10px);
+}
+
+.stock_toggles {
+  width: 90%;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+.stock_toggles select {
+
+  width: 75px;
+  height: 35px;
+  background-color: #ff0055;
+  color: white;
+
 }

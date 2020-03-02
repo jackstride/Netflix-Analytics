@@ -189,6 +189,7 @@ export default class WorldSubscribers extends Component {
         })
         .on("mouseleave", (d, i, nodes) => {
           d3.select(nodes[i]).style("fill", "transparent");
+          stockTooltip.style("visibility", "hidden");
         });
     };
 
