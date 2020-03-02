@@ -16,7 +16,6 @@ export default class WorldSubscribers extends Component {
   componentDidMount() {
     axios.get("/stockData").then(res => {
       this.setState({ data: res.data.dataArray });
-      console.log(this.state.data);
     });
     this.chart();
   }
@@ -26,27 +25,27 @@ export default class WorldSubscribers extends Component {
     this.chart();
   }
 
-  getYear = e => {
-    console.log(this.state.data);
-    let year = e.target.value;
+  // getYear = e => {
+  //   console.log(this.state.data);
+  //   let year = e.target.value;
 
-    let start = new Date("01/01/" + year);
-    let end = new Date("12/31/" + year);
+  //   let start = new Date("01/01/" + year);
+  //   let end = new Date("12/31/" + year);
 
-    let filtered = this.state.data.filter(data => {
-      // let day = data.date.slice(0, 2);
-      // let month = data.date.slice(3, 5);
-      // let year = data.date.slice(6, 10);
+  //   let filtered = this.state.data.filter(data => {
+  //     let day = data.date.slice(0, 2);
+  //     let month = data.date.slice(3, 5);
+  //     let year = data.date.slice(6, 10);
 
-      return new Date(data.date) >= start && new Date(data.date) <= end;
-    });
-    console.log(this.state);
-
-    this.setState({ setData: filtered });
-  };
+  //     return (
+  //       new Date(year, month, day) >= start && new Date(year, month, day) <= end
+  //     );
+  //   });
+  //   this.setState({ setData: filtered });
+  // };
 
   chart = () => {
-    let { setData } = this.state;
+    let { data } = this.state;
 
     var margin = { top: 20, right: 20, bottom: 30, left: 50 },
       width =
@@ -62,11 +61,9 @@ export default class WorldSubscribers extends Component {
     var parseTime = d3.timeParse("%d/%m/%Y");
     //"%a %b %e %X %Y"
 
-    // set the ranges
     var x = d3.scaleTime().range([0, width]);
     var y = d3.scaleLinear().range([height, 0]);
 
-    // define the line
     var valueline = d3
       .line()
       .x(function(d) {
@@ -76,9 +73,6 @@ export default class WorldSubscribers extends Component {
         return y(d.Close);
       });
 
-    // append the svg obgect to the body of the page
-    // appends a 'group' element to 'svg'
-    // moves the 'group' element to the top left margin
     var svg = d3
       .select("#stockData")
       .append("svg")
@@ -87,40 +81,50 @@ export default class WorldSubscribers extends Component {
       .append("g")
       .attr("transform", "translate(150,20)");
 
-    // format the data
-    setData.forEach(function(d) {
+    data.forEach(function(d) {
       d.date = parseTime(d.date);
       d.Close = +d.Close;
     });
 
-    // Scale the range of the data
     x.domain(
-      d3.extent(setData, function(d) {
+      d3.extent(data, function(d) {
         return d.date;
       })
     );
     y.domain([
       0,
-      d3.max(setData, function(d) {
+      d3.max(data, function(d) {
         return d.Close;
       })
     ]);
 
-    // Add the valueline path.
-
-    svg
+    let line = svg
       .append("path")
       .attr("class", "line")
-      .attr("d", valueline(setData));
+      .attr("d", valueline(data));
 
-    // Add the X Axis
     svg
       .append("g")
       .attr("transform", "translate(0," + height + ")")
       .call(d3.axisBottom(x));
 
-    // Add the Y Axis
     svg.append("g").call(d3.axisLeft(y));
+
+    let update = option => {
+      let start = new Date("01/01/" + option);
+      let end = new Date("12/31/" + option);
+
+      let newData = data.filter(data => {
+        return new Date(data.date) >= start && new Date(data.date) <= end;
+      });
+
+      line.attr("d", valueline(newData));
+    };
+
+    d3.select(".stock_toggles>select").on("change", (d, i, nodes) => {
+      let option = nodes[i].value;
+      update(option);
+    });
   };
 
   render() {
