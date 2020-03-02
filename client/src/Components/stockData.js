@@ -47,8 +47,8 @@ var y = d3.scaleLinear().range([height, 0]);
 
 // define the line
 var valueline = d3.line()
-    .x(function(d) { return x(d.Close); })
-    .y(function(d) {return y(d.Date) });
+    .x(function(d) { return x(d.Date); })
+    .y(function(d) {return y(d.Close) });
 
 // append the svg obgect to the body of the page
 // appends a 'group' element to 'svg'
@@ -56,26 +56,27 @@ var valueline = d3.line()
 var svg = d3.select("#stockData").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
-  .append("g")
+  .append("g").attr("transform", "translate(150,20)")
 
 
 
   // format the data
   data.forEach(function(d) {
       d.Date = parseTime(d.Date)
-      console.log(d.Date)
       d.Close = +d.Close;
   });
 
   // Scale the range of the data
-  x.domain(d3.extent(data, function(d) { return d.Close; }));
-  y.domain([0, d3.max(data, function(d) { return d.Date; })]);
+  x.domain(d3.extent(data, function(d) { return d.Date; }));
+  y.domain([0, d3.max(data, function(d) { return d.Close; })]);
 
   // Add the valueline path.
+
+
+
   svg.append("path")
-      .data([data])
       .attr("class", "line")
-      .attr("d", valueline)
+      .attr("d", valueline(data))
 
   // Add the X Axis
   svg.append("g")

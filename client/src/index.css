@@ -379,9 +379,13 @@ left: 20px;
 
 #stockData {
   height: 700px;
+  width: 90%
 }
 
+
 .line {
-  fill: white;
-  color: white;
+  fill: none;
+  stroke: #FF0055;
+  stroke-width: 2px;
+  stroke-linejoin: miter;
 }
