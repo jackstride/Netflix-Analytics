@@ -21,7 +21,7 @@ export default class StreamingStats extends Component {
 
   chart = () => {
     var diameter = document.getElementById("bubbleChart").offsetHeight;
-    
+
     var bubble = d3
       .pack(this.state.data)
       .size([diameter, diameter])
@@ -49,36 +49,41 @@ export default class StreamingStats extends Component {
       .attr("class", "node")
       .attr("transform", function(d) {
         return "translate(" + d.x + "," + d.y + ")";
-      }).attr("cursor","pointer")
+      })
+      .attr("cursor", "pointer");
 
     node.append("title").text(function(d) {
       return d.data.subscribers;
     });
 
+    let tooltip = d3
+      .select("body")
+      .append("div")
+      .attr("class", "tooltip")
+      .style("visibility", "hidden");
 
-
-    let tooltip = d3.select("body").append("div").attr("class","tooltip").style("visibility","hidden")
-
-    let text = d3.select(".tooltip")
-    .append("svg")
-    .attr("dominant-baseline","middle").attr("width","100%")
-      
+    let text = d3
+      .select(".tooltip")
+      .append("svg")
+      .attr("dominant-baseline", "middle")
+      .attr("width", "100%");
 
     node
       .append("circle")
       .attr("r", function(d) {
         return d.r;
       })
-      .style("stroke","#FF0055")
+      .style("stroke", "#FF0055")
       .style("fill", "transparent")
       .on("mousemove", (d, i, nodes) => {
         tooltip
-        .style("visibility", "visible")
-        .style("left", () => {
-          return d3.event.pageX + "px"
-        }).style("top", () => {
-          return d3.event.pageY + "px"
-        });
+          .style("visibility", "visible")
+          .style("left", () => {
+            return d3.event.pageX + "px";
+          })
+          .style("top", () => {
+            return d3.event.pageY + "px";
+          });
 
         text.select(".bubbleTitle").remove();
         text.select(".bubblesub").remove();
@@ -86,24 +91,66 @@ export default class StreamingStats extends Component {
         text.select(".subs").remove();
         text.select(".area").remove();
 
-        text.append("text").attr("x","20").attr("dy", "20").attr("class","bubbleTitle").text(d.data.service)
-        text.append("text").attr("x","20").attr("dy", "35").attr("class","bubblesub").text(d.data.parent)
+        text
+          .append("text")
+          .attr("x", "20")
+          .attr("dy", "20")
+          .attr("class", "bubbleTitle")
+          .text(d.data.service);
+        text
+          .append("text")
+          .attr("x", "20")
+          .attr("dy", "35")
+          .attr("class", "bubblesub")
+          .text(d.data.parent);
 
-        text.append("text").attr("class","startDate").attr("x","20").attr("y", "60")
-        text.select(".startDate").append("tspan").attr("class","tooltip_header").text("Launch Date: ")
-        text.select(".startDate").append("tspan").text(d.data.launchDate)
+        text
+          .append("text")
+          .attr("class", "startDate")
+          .attr("x", "20")
+          .attr("y", "60");
+        text
+          .select(".startDate")
+          .append("tspan")
+          .attr("class", "tooltip_header")
+          .text("Launch Date: ");
+        text
+          .select(".startDate")
+          .append("tspan")
+          .text(d.data.launchDate);
 
-        text.append("text").attr("class","subs").attr("x","20").attr("y", "80")
-        text.select(".subs").append("tspan").attr("class","tooltip_header").text("Subscribers(Million): ")
-        text.select(".subs").append("tspan").text(d.data.subscribers)
+        text
+          .append("text")
+          .attr("class", "subs")
+          .attr("x", "20")
+          .attr("y", "80");
+        text
+          .select(".subs")
+          .append("tspan")
+          .attr("class", "tooltip_header")
+          .text("Subscribers(Million): ");
+        text
+          .select(".subs")
+          .append("tspan")
+          .text(d.data.subscribers);
 
-        text.append("text").attr("class","area").attr("x","20").attr("y", "100")
-        text.select(".area").append("tspan").attr("class","tooltip_header").text("Area Coverage: ")
-        text.select(".area").append("tspan").text(d.data.area)
-        
+        text
+          .append("text")
+          .attr("class", "area")
+          .attr("x", "20")
+          .attr("y", "100");
+        text
+          .select(".area")
+          .append("tspan")
+          .attr("class", "tooltip_header")
+          .text("Area Coverage: ");
+        text
+          .select(".area")
+          .append("tspan")
+          .text(d.data.area);
       })
       .on("mouseout", (d, i, nodes) => {
-        tooltip.style("visibility","hidden");
+        tooltip.style("visibility", "hidden");
       });
 
     node
@@ -119,8 +166,6 @@ export default class StreamingStats extends Component {
   };
 
   render() {
-    return (
-        <div id="bubbleChart"></div>
-    );
+    return <div id="bubbleChart"></div>;
   }
 }

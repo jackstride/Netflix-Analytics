@@ -1,39 +1,40 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 body {
-  background-color: #0C0B1A;
+  background-color: #0c0b1a;
 }
 
 h1 {
   font-size: 98px;
-  color: #D0021B;
+  color: #d0021b;
   font-weight: 700;
   line-height: 110px;
 }
 
 h2 {
   font-size: 28px;
-color: #F2F9FF;
-letter-spacing: 0.18px;
-font-weight: 400;
+  color: #f2f9ff;
+  letter-spacing: 0.18px;
+  font-weight: 400;
 }
 
 h3 {
-font-size: 15px;
-color: #FF0055;
-letter-spacing: 0.1px;
-font-weight: 400;
+  font-size: 15px;
+  color: #ff0055;
+  letter-spacing: 0.1px;
+  font-weight: 400;
 }
 
-h6 { 
-font-size: 14px;
-color: #676571;
-letter-spacing: 0.1px;
-font-weight: 500;
+h6 {
+  font-size: 14px;
+  color: #676571;
+  letter-spacing: 0.1px;
+  font-weight: 500;
 }
 
 text {
@@ -53,18 +54,12 @@ p {
   margin: 0 auto;
 }
 
-
-
-
-
 /* App Intro */
-
-
 
 .app_intro {
   height: 100vh;
   width: 100%;
-  background-color: #0C0B1A;
+  background-color: #0c0b1a;
   position: relative;
   overflow: hidden;
   display: flex;
@@ -73,7 +68,6 @@ p {
   flex-direction: column;
 }
 
-
 .app_intro img {
   position: absolute;
   height: 90vh;
@@ -81,12 +75,11 @@ p {
   left: 0;
   right: 0;
   bottom: 0;
-  margin-left: auto;  
+  margin-left: auto;
   margin-right: auto;
-  opacity: .7;
+  opacity: 0.7;
   mix-blend-mode: lighten;
 }
-
 
 .app_intro span {
   font-size: 112px;
@@ -99,11 +92,13 @@ p {
   animation: fadeIn 1s;
 }
 
-
-@keyframes fadeIn{
-  from {opacity: 0;}
-  to {opacity: .9;}
-
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.9;
+  }
 }
 
 .shrink {
@@ -120,7 +115,6 @@ p {
   border-top: 1px solid white;
 }
 
-
 /* Header */
 
 .header {
@@ -131,25 +125,22 @@ p {
   justify-content: space-between;
 }
 
-.header>img {
+.header > img {
   height: 100px;
 }
-
 
 .analytics {
   display: flex;
   flex-direction: column;
   align-items: center;
-
 }
 
 .span_analytics {
-  color: #D0021B;
+  color: #d0021b;
   padding-top: 5px;
   font-weight: 500;
   font-size: 14px;
 }
-
 
 .linecolor {
   color: rgba(255, 255, 255, 0.3);
@@ -163,11 +154,7 @@ p {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-
 }
-
-
-
 
 /* Sections */
 
@@ -184,7 +171,6 @@ p {
   gap: 1vw;
 }
 
-
 .graph_title {
   grid-area: TitleOne;
 }
@@ -196,22 +182,18 @@ p {
 
 .yearly {
   grid-area: graphOne;
-  background-color: #0F0E1F;
+  background-color: #0f0e1f;
   border-radius: 12px;
-  
 }
 
 .partTwo {
   grid-area: graphTwo;
-  background-color: #0F0E1F;
+  background-color: #0f0e1f;
   width: 100%;
   height: 600px;
 }
 
-
-
 /* First Chart */
-
 
 #yearly_bar {
   height: 100%;
@@ -220,30 +202,26 @@ p {
   position: relative;
 }
 
-#yearly_bar>svg {
+#yearly_bar > svg {
   width: 100%;
   height: 100%;
   border-radius: 12px;
 }
 
 .bar {
-  fill: #FF0055;
+  fill: #ff0055;
   cursor: pointer;
 }
-
 
 .yearly_info > * {
   padding: 2.5px 0px;
 }
 
 .yearly_info {
-position: relative;
-top: 20px;
-left: 20px;
-  
+  position: relative;
+  top: 20px;
+  left: 20px;
 }
-
-
 
 /* Donut Chart */
 
@@ -251,10 +229,8 @@ left: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column
-  
+  flex-direction: column;
 }
-
 
 .donut_text {
   width: auto;
@@ -266,7 +242,7 @@ left: 20px;
 .donut_row {
   width: 100%;
   display: flex;
-  flex-direction: row; 
+  flex-direction: row;
   cursor: pointer;
   padding: 2px 0px;
 }
@@ -276,17 +252,16 @@ left: 20px;
   border-radius: 8px;
 }
 
-
 .donut_row tspan {
-  color: #FF0055;
+  color: #ff0055;
   margin-right: 10px;
 }
 
 .donut_text text {
   font-size: 15px;
-    color: white;
-    letter-spacing: .5px;
-    font-weight: 400;
+  color: white;
+  letter-spacing: 0.5px;
+  font-weight: 400;
 }
 
 .donut_percent {
@@ -294,21 +269,18 @@ left: 20px;
   font-size: 32px;
 }
 
-.donut_percent>tspan {
+.donut_percent > tspan {
   fill: #676571;
   font-weight: 600;
   font-size: 14px;
 }
-
-
-
 
 /* Circle charts */
 
 .cicrle_group {
   width: 100%;
   height: 700px;
-  background-color: #0F0E1F;
+  background-color: #0f0e1f;
   border-radius: 12px;
   margin-top: 20px;
   margin-bottom: 100px;
@@ -323,14 +295,13 @@ left: 20px;
   position: relative;
 }
 
-
 .domain {
   display: none;
 }
 
 .tooltip_header {
   font-size: 12px;
-  fill: #FF0055;
+  fill: #ff0055;
   font-weight: 600;
 }
 
@@ -338,7 +309,7 @@ left: 20px;
   position: absolute;
   width: 325px;
   height: 125px;
-  background-color: #F2F9FF;
+  background-color: #f2f9ff;
   pointer-events: none;
   border-radius: 12px;
   transform: translate(10px, 10px);
@@ -348,13 +319,11 @@ left: 20px;
   font-weight: 500;
 }
 
-
-
 .bubbleTitle {
   font-size: 16px;
   margin-bottom: 10px;
   font-weight: 600;
-  fill: #FF0055;
+  fill: #ff0055;
 }
 
 .bubblesub {
@@ -362,30 +331,35 @@ left: 20px;
   fill: #676571;
 }
 
-
-
 /* Stock CHart */
-
 
 .stock {
   width: 100%;
   height: 700px;
-  background-color: #0F0E1F;
+  background-color: #0f0e1f;
   border-radius: 12px;
   margin-top: 20px;
   margin-bottom: 100px;
 }
 
-
 #stockData {
   height: 700px;
-  width: 90%
+  width: 90%;
 }
-
 
 .line {
   fill: none;
-  stroke: #FF0055;
+  stroke: #ff0055;
   stroke-width: 2px;
   stroke-linejoin: miter;
+}
+
+.stock_tooltip {
+  position: absolute;
+  width: 325px;
+  height: 125px;
+  background-color: #f2f9ff;
+  pointer-events: none;
+  border-radius: 12px;
+  transform: translate(10px, 10px);
 }
