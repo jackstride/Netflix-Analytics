@@ -114,30 +114,35 @@ export default class WorldSubscribers extends Component {
       .attr("class", "y-axis")
       .call(d3.axisLeft(y));
 
+    let setChart = chartData => {
+      x.domain(
+        d3.extent(chartData, function(d) {
+          return d.date;
+        })
+      );
+      y.domain([
+        0,
+        d3.max(chartData, function(d) {
+          return d.Close;
+        })
+      ]);
+      svg.select(".x-axis").call(d3.axisBottom(x));
+      svg.select(".y-axis").call(d3.axisLeft(y));
+      line.attr("d", valueline(chartData));
+    };
+
     let update = option => {
       if (option == "0") {
-        line.attr("d", valueline(data));
+        setChart(data);
       } else {
+        console.log("yes");
         let start = new Date("01/01/" + option);
         let end = new Date("12/31/" + option);
 
         let newData = data.filter(data => {
           return new Date(data.date) >= start && new Date(data.date) <= end;
         });
-        x.domain(
-          d3.extent(newData, function(d) {
-            return d.date;
-          })
-        );
-        y.domain([
-          0,
-          d3.max(newData, function(d) {
-            return d.Close;
-          })
-        ]);
-        svg.select(".x-axis").call(d3.axisBottom(x));
-        svg.select(".y-axis").call(d3.axisLeft(y));
-        line.attr("d", valueline(newData));
+        setChart(newData);
       }
     };
 
