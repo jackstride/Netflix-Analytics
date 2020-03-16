@@ -164,7 +164,7 @@ p {
 
 .container {
   height: 100%;
-  width: 9%;
+  width: 90%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -183,7 +183,6 @@ p {
     "graphOne graphOne graphTwo"
     "graphOne graphOne graphTwo";
   gap: 1vw;
-
 }
 
 .graph_title {
@@ -205,16 +204,14 @@ p {
   grid-area: graphTwo;
   background-color: #0f0e1f;
   width: 100%;
-  height: 100%;
 }
 
 /* First Chart */
 
 #yearly_bar {
-  height: 100%;
+  height: 700px;
   width: 100%;
   border-radius: 12px;
-
 }
 
 #yearly_bar>svg {
@@ -345,16 +342,15 @@ p {
   fill: #676571;
 }
 
-
-
 /* Part two */
 
-.partTwo {
-  height: 700px;
+.partThree {
+  height: 300px;
   width: 100%;
   display: grid;
   grid-template-columns: 50% 50%;
-  gap: 10px
+  grid-template-rows: 1fr;
+  gap: 10px;
 }
 
 /* Stock CHart */
@@ -397,15 +393,12 @@ p {
 }
 
 .stock_toggles select {
-
   width: 75px;
   height: 35px;
   background-color: #ff0055;
   color: white;
   border: none;
-
 }
-
 
 /* Information Panel */
 
@@ -437,7 +430,5 @@ p {
   border-radius: 12px;
   position: relative;
 }
-
-
 
 /* Pie Chart */

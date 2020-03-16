@@ -22,10 +22,9 @@ export default class WorldSubscribers extends Component {
 
   chart = () => {
     var margin = { top: 60, right: 20, bottom: 0, left: 70 };
-    let width =
-      document.getElementById("yearly_bar").offsetWidth;
+    let width = document.getElementById("yearly_bar").offsetWidth - margin.top;
     let height =
-      document.getElementById("yearly_bar").offsetHeight;
+      document.getElementById("yearly_bar").offsetHeight - margin.left;
 
     // set the ranges
     var x = d3
@@ -41,7 +40,7 @@ export default class WorldSubscribers extends Component {
       .attr("width", width)
       .attr("height", height)
       .append("g")
-      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+      .attr("transform", "translate(" + margin.left + "," + "0" + ")");
 
     x.domain(
       this.state.data.map(function(d) {
@@ -54,8 +53,8 @@ export default class WorldSubscribers extends Component {
         return 190;
       })
     ]);
-    
-      svg
+
+    svg
       .append("g")
       .call(d3.axisLeft(y))
       .selectAll("line")
@@ -80,23 +79,33 @@ export default class WorldSubscribers extends Component {
         return y(30);
       })
       .on("mouseover", (d, i, svg) => {
-      document.getElementsByClassName('year')[0].innerText = d.year;
-      document.getElementsByClassName('users')[0].innerText = d.number + " Million Ussers"
-      d3.select(svg[i]).transition().delay(0).duration(1000).attr("height", height -20  - y(d.number))
-      // one.text(d.number)
+        document.getElementsByClassName("year")[0].innerText = d.year;
+        document.getElementsByClassName("users")[0].innerText =
+          d.number + " Million Ussers";
+        d3.select(svg[i])
+          .transition()
+          .delay(0)
+          .duration(1000)
+          .attr("height", height - 20 - y(d.number));
+        // one.text(d.number)
       })
       .on("mouseout", (d, i, svg) => {
-        d3.select(svg[i]).transition().duration(100).attr("height", height - y(d.number))
-        })
+        d3.select(svg[i])
+          .transition()
+          .duration(100)
+          .attr("height", height - y(d.number));
+      })
       .transition()
       .attr("y", function(d) {
         return y(d.number);
-      }).duration(1000).delay(2000)
+      })
+      .duration(1000)
+      .delay(2000)
 
       .attr("height", function(d) {
         return height - y(d.number);
-      })
-      
+      });
+
     // add the x Axis
     svg
       .append("g")

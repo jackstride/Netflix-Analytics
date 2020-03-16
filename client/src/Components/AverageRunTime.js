@@ -6,7 +6,7 @@ const HightRatedGenres = () => {
   let [data, setData] = useState();
 
   useEffect(() => {
-    axios.get("/averagegenre").then(res => {
+    axios.get("/averagelength").then(res => {
       setData(res.data.dataArray);
     });
   }, [setData]);
@@ -19,11 +19,11 @@ const HightRatedGenres = () => {
   let chart = () => {
     var margin = { top: 20, right: 20, bottom: 30, left: 100 },
       width =
-        document.getElementById("avergeRating").offsetWidth -
+        document.getElementById("runtime").offsetWidth -
         margin.left -
         margin.right,
       height =
-        document.getElementById("avergeRating").offsetHeight -
+        document.getElementById("runtime").offsetHeight -
         margin.top -
         margin.bottom;
 
@@ -39,7 +39,7 @@ const HightRatedGenres = () => {
     // append a 'group' element to 'svg'
     // moves the 'group' element to the top left margin
     var svg = d3
-      .select("#avergeRating")
+      .select("#runtime")
       .append("svg")
       .attr("width", width + margin.left + margin.right)
       .attr("height", height + margin.top + margin.bottom)
@@ -91,7 +91,7 @@ const HightRatedGenres = () => {
     svg.append("g").call(d3.axisLeft(y));
   };
 
-  return <div id="avergeRating"></div>;
+  return <div id="runtime"></div>;
 };
 
 export default HightRatedGenres;
