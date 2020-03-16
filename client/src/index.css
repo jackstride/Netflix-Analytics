@@ -11,7 +11,7 @@ body {
 
 h1 {
   font-size: 98px;
-  color: #d0021b;
+  color: #ff0055;
   font-weight: 700;
   line-height: 110px;
 }
@@ -150,9 +150,9 @@ p {
 }
 
 .span_analytics {
-  color: #d0021b;
+  color: #ff0055;
   padding-top: 5px;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 14px;
 }
 
@@ -428,7 +428,50 @@ p {
   height: 70%;
   background-color: #0f0e1f;
   border-radius: 12px;
+}
+
+.content {
+  width: 90%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  margin-top: 100px;
+}
+
+.content p {
+  font-weight: 400;
+  font-size: 16px;
+  width: 60%;
+  line-height: 32px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 10px 0px;
+}
+
+li a {
+  color: white;
+  text-decoration: none;
+}
+
+li {
+  padding: 10px 0px;
   position: relative;
 }
+
+li::before {
+  content: "";
+  position: absolute;
+  left: -20px;
+  top: 50%;
+  height: 8px;
+  width: 8px;
+  background-color: #ff0055;
+  border-radius: 50%;
+  transform: translate(50%, -50%);
+}
+
 
 /* Pie Chart */
