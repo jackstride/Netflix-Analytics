@@ -8,6 +8,7 @@ import FitlerChart from "./Components/filterChart";
 import YearlySubscriptions from "./Components/YearlySubscriptions";
 import DonutChart from "./Components/DonutChart";
 import Intro from "./Components/Intro";
+import HightRatedGenres from "./Components/HighRatedGenres";
 
 let App = () => {
   return (
@@ -35,9 +36,14 @@ let App = () => {
           <StreamingStats />
         </section>
         <h2>Stock Data</h2>
+        <section className="col-1 partTwo">
+          <HightRatedGenres />
+        </section>
+        <h2>Stock Data</h2>
         <section className="col-1 stock">
           <StockData />
         </section>
+        <section className="genres"></section>
       </div>
     </div>
   );
