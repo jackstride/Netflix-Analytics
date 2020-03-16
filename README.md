@@ -32,17 +32,25 @@ Main issues when creating this dashboard was learning D3.js and how this can be 
 
 ![Web Scraping](https://i.imgur.com/baEItG9.png)
 
+### Appendix Two
+
 #### Web scraping Wikipedia for Streaming Services
 
 ![Imgur](https://i.imgur.com/BXak9Ts.png)
+
+### Appendix Three
 
 #### Filtering Data to find IMDB ratings above 89
 
 ![Imgur](https://i.imgur.com/Qt3bZlL.png)
 
+### Appendix Four
+
 #### Function to find the average length of a show based on genre
 
 ![Imgur](https://i.imgur.com/HATNbMd.png)
+
+### Appendix Five
 
 #### Fucntion to update Stock Chart based on year.
 
