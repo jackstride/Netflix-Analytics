@@ -30,7 +30,9 @@ Other data sources such as how long the average viewer watches netflix a month, 
 
 Main issues when creating this dashboard was learning D3.js and how this can be used within React. D3 is also SVG driven so this created a steap learning curve where SVG's have particular attribues and styling. Interactivity also proved difficult as D3 have their own way to create interactivity. If more time was given, exploration into the documentation, a stronger understanding of how methods and attribues work along with styling and placement would be used to increase the complexiity and present the data in a more efficient way.
 
-## Conclustion
+## Conclusion
+
+During planning, it was apparent that finding sources of data to support the growth of Netflix was going to be difficilt due to the lack and quality of datasets, other websites not citing their sources or the lack of information actually given by Netflix themselves (so secretive) however sources on Wikipedia proved to be useful. It is my opinion that a conclusion can be reached based on viewing the subscription and stock chart combined with shows thst suggest Netflix is either at their peak, or have passed it due to the steady rate of both subscribers and stock price compared to that of the last four years.
 
 ## Appendix
 
