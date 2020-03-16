@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import file from "../data/StreamingCompetition.csv";
-const Papa = require("papaparse");
 const axios = require("axios");
 const d3 = require("d3");
 

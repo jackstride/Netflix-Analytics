@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import file from "../data/NetflixShows.csv";
 import axios from "axios";
 const d3 = require("d3");
 
@@ -6,8 +7,21 @@ const HightRatedGenres = () => {
   let [data, setData] = useState();
 
   useEffect(() => {
-    axios.get("/averagegenre").then(res => {
-      setData(res.data.dataArray);
+    d3.csv(file).then(res => {
+      let drama = getAverageRating(res, "Drama");
+      let comedy = getAverageRating(res, "Comedy");
+      let docu = getAverageRating(res, "Docu-Series");
+      let family = getAverageRating(res, "Family Animation");
+      let marvel = getAverageRating(res, "Marvel");
+
+      let dataArray = [
+        { genre: "Drama", value: drama },
+        { genre: "Comedy", value: comedy },
+        { genre: "Docu-Series", value: docu },
+        { genre: "Family", value: family },
+        { genre: "Marvel", value: marvel }
+      ];
+      setData(dataArray);
     });
   }, [setData]);
 
@@ -16,6 +30,17 @@ const HightRatedGenres = () => {
       chart();
     }
   }, [data]);
+
+  let getAverageRating = (array, genreName) => {
+    let genre = array.filter(item => item.Major_Genre === genreName);
+
+    let total = genre.reduce((prev, curr) => {
+      return Math.ceil(prev + parseInt(curr.IMDB_Rating) / genre.length);
+    }, 0);
+
+    return total;
+  };
+
   let chart = () => {
     var margin = { top: 20, right: 20, bottom: 30, left: 100 },
       width =

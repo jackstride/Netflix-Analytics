@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { thresholdScott, create } from "d3";
+import file from "../data/StockData.csv";
 const axios = require("axios");
 const d3 = require("d3");
 
@@ -13,8 +13,8 @@ export default class WorldSubscribers extends Component {
   }
 
   componentDidMount() {
-    axios.get("/stockData").then(res => {
-      this.setState({ data: res.data.dataArray });
+    d3.csv(file).then(res => {
+      this.setState({ data: res });
       this.chart();
     });
   }

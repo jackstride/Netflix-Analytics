@@ -1,7 +1,7 @@
 import React, { Component } from "react";
+import file from "../data/NetflixShows.csv";
 const axios = require("axios");
 const d3 = require("d3");
-const fs = require("fs");
 
 export default class DonutChart extends Component {
   constructor(props) {
@@ -13,15 +13,12 @@ export default class DonutChart extends Component {
 
   // Fethc and filter data
   componentDidMount() {
-    axios
-      .get("/bestNetflixShows")
-      .then(res => {
-        let data = res.data.dataArray;
-        data = data.filter(data => data.IMDB_Rating >= 89);
-        this.setState({ data: data });
-        this.chart();
-      })
-      .catch(err => console.log(err));
+    d3.csv(file).then(res => {
+      let data = res;
+      data = data.filter(data => data.IMDB_Rating >= 89);
+      this.setState({ data: data });
+      this.chart();
+    });
   }
 
   chart = () => {
