@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { schemeSet3 } from "d3";
+import file from "../data/StreamingCompetition.csv";
+const Papa = require("papaparse");
 const axios = require("axios");
 const d3 = require("d3");
 
@@ -13,8 +14,11 @@ export default class StreamingStats extends Component {
   }
 
   componentDidMount() {
-    axios.get("/StreamingCompetition").then(res => {
-      this.setState({ data: res.data.dataset });
+    d3.csv(file).then(res => {
+      let dataset = {
+        children: res
+      };
+      this.setState({ data: dataset });
       this.chart();
     });
   }
