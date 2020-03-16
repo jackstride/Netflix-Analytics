@@ -34,6 +34,7 @@ let App = () => {
         <section className="col-1 cicrle_group">
           <StreamingStats />
         </section>
+        <h2>Stock Data</h2>
         <section className="col-1 stock">
           <StockData />
         </section>
