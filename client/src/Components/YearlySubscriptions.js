@@ -42,6 +42,15 @@ export default class WorldSubscribers extends Component {
       .append("g")
       .attr("transform", "translate(" + margin.left + "," + "0" + ")");
 
+    var aspect = width / height,
+      chart = d3.select("#yearly_bar");
+    d3.select(window).on("resize", function() {
+      console.log("hello");
+      var targetWidth = chart.node().getBoundingClientRect().width;
+      chart.attr("width", targetWidth);
+      chart.attr("height", targetWidth / aspect);
+    });
+
     x.domain(
       this.state.data.map(function(d) {
         return d.year;
@@ -120,8 +129,8 @@ export default class WorldSubscribers extends Component {
       <div className="yearly">
         <div className="yearly_info">
           <h6>Netflix</h6>
-          <h2 className="year">2013</h2>
-          <h3 className="users">41.43 Million Users</h3>
+          <h3 className="year">2013</h3>
+          <h4 className="users">41.43 Million Users</h4>
         </div>
         <div id="yearly_bar"></div>
       </div>

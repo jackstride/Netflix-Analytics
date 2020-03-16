@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, forwardRef } from "react";
 import "./index.css";
+import "./media.css";
 
 import StockData from "./Components/StockData";
 import Header from "./Components/Header";
@@ -32,16 +33,32 @@ let App = () => {
           <YearlySubscriptions />
           <DonutChart />
         </section>
-        <h2>Who are the competition</h2>
+        <div className="title">
+          <h2>Who are the competition</h2>
+        </div>
         <section className="col-1 cicrle_group">
           <StreamingStats />
         </section>
-        <h2>Average Rating based on genre</h2>
+
         <section className="col-1 partThree">
+          <div className="bar_title">
+            <h2>Netflix Genres</h2>
+          </div>
+          <div className="bar_title">
+            <h2>Netflix Episodes</h2>
+          </div>
           <HightRatedGenres />
           <AverageRunTime />
+          <div className="tag1">
+            <span>Average Rating (IMDB)</span>
+          </div>
+          <div className="tag2">
+            <span>Average length (One Episode)</span>
+          </div>
         </section>
-        <h2>Stock Data</h2>
+        <div className="title">
+          <h2>Stock Data</h2>
+        </div>
         <section className="col-1 stock">
           <StockData />
         </section>

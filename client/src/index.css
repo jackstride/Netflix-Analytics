@@ -17,14 +17,35 @@ h1 {
 }
 
 h2 {
-  font-size: 28px;
+  font-size: 24px;
+  color: white;
+  letter-spacing: 0.18px;
+  font-weight: 500;
+  position: relative;
+}
+
+h2::before {
+  content: "";
+  position: absolute;
+  transform: translate(0, -50%);
+  top: 50%;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  padding: 5px 10px;
+  background-color: #322e69;
+  z-index: -1;
+}
+
+h3 {
+  font-size: 32px;
   color: #f2f9ff;
   letter-spacing: 0.18px;
   font-weight: 400;
 }
 
-h3 {
-  font-size: 15px;
+h4 {
+  font-size: 22px;
   color: #ff0055;
   letter-spacing: 0.1px;
   font-weight: 400;
@@ -49,7 +70,7 @@ p {
 }
 
 .app_container {
-  max-width: 1440px;
+  max-width: 1600px;
   margin: 0 auto;
 }
 
@@ -176,10 +197,14 @@ p {
   width: 100%;
 }
 
+.title {
+  width: fit-content;
+}
+
 .partone {
   display: grid;
   grid-template-areas:
-    "TitleOne TitleOne TitleTwo"
+    "TitleOne blank TitleTwo"
     "graphOne graphOne graphTwo"
     "graphOne graphOne graphTwo";
   gap: 1vw;
@@ -230,6 +255,7 @@ p {
 }
 
 .yearly_info {
+  position: relative;
   top: 20px;
   left: 20px;
 }
@@ -342,16 +368,57 @@ p {
   fill: #676571;
 }
 
-/* Part two */
+/* Part Three */
 
 .partThree {
-  height: 300px;
+  height: 400px;
   width: 100%;
   display: grid;
-  grid-template-columns: 50% 50%;
-  grid-template-rows: 1fr;
+  grid-template-areas:
+    "title title2"
+    "chart1 chart2"
+    "tag1 tag2";
+  grid-template-rows: 50px 300px 50px;
+  margin-bottom: 100px;
   gap: 10px;
 }
+
+.bar_title:nth-child(1) {
+  justify-self: center;
+  grid-area: title;
+}
+
+.bar_title:nth-child(2) {
+  grid-area: title2;
+  justify-self: center;
+}
+
+.tag1 {
+  grid-area: tag1;
+  justify-self: center;
+}
+
+.tag2 {
+  grid-area: tag2;
+  justify-self: center;
+}
+
+
+span {
+  color: white;
+}
+
+#averageRating {
+  grid-area: chart1;
+}
+
+#runtime {
+  grid-area: chart2;
+}
+
+
+
+
 
 /* Stock CHart */
 
@@ -413,6 +480,7 @@ p {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  z-index: 1;
 }
 
 .close {
@@ -431,12 +499,13 @@ p {
 }
 
 .content {
-  width: 90%;
-  height: 90%;
+  width: fit-content;
+  height: fit-content;
   display: flex;
   flex-direction: column;
   margin: auto;
   margin-top: 100px;
+  padding: 100px;
 }
 
 .content p {
