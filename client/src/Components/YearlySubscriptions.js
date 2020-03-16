@@ -45,7 +45,6 @@ export default class WorldSubscribers extends Component {
     var aspect = width / height,
       chart = d3.select("#yearly_bar");
     d3.select(window).on("resize", function() {
-      console.log("hello");
       var targetWidth = chart.node().getBoundingClientRect().width;
       chart.attr("width", targetWidth);
       chart.attr("height", targetWidth / aspect);
