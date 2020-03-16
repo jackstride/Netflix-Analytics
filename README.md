@@ -7,6 +7,14 @@ Datasets from Kaggle and Data.World appeared to be outdated but contained popula
 
 Using the data obtained, 6 indivual charts will be created. The type of metrics to be described are their subscription growth over the last 5 years. Their highest rated IMDB shows and if this has any correlation to their stock price or subscription growth. View and compare their competitors to see where they are placed within todays market,types of genres and if they score higher in IMDB ratings, the average show length for certain genres and lastly their stock price within the last 5 years where this can be used to compare an orignal show's release data and their subcription numbers.
 
+In total six graphs have been created. The first graph details the subscription growth Netflix has gained within the last five years. To obtain this data from Wikipedia (Appendix One), different JavaScript libraries were used to scrape the page. ‘Request-promise’ was used to obtain the page in html, ‘cheerio’ to search for the data and ‘fs’ which is a node module was used to write that data into a CSV format which can be saved and later used. The same concept was used (Appendix Two) to obtain streaming competition for Netflix, further data cleansing was used to remove empty columns and convert strings to ints when needed.
+
+Next, a donut chart was made to display Netflix original shows with a rating of 89 or higher. Netflix Original show data was obtained from Data.World. After reading the data, a filter was needed in the IMDB_Rating column for shows 89 or above(Appendix Three)
+
+Both average rating and average length of a show based on genre used the same Data set from Data.World. A function was used to generate the average rating (Appendix Four) by passing the genre type.
+
+The last graph shows the a stock chart which can be filtered based on the year (Appendix Five). To cleanse the data and return what year the user wanted to select, a data range was used from the start and finish of the selected year, one set, this would reset data and show what is requested.
+
 1: WorldWide Users - https://en.wikipedia.org/wiki/Netflix
 2: Competition - https://en.wikipedia.org/wiki/Streaming_services
 3: Netflix Original Content and IMDB - https://data.world/mattschroyer/netflix-original-series/workspace/file?filename=Netflix_Original_Series_2013_2017.xlsx
