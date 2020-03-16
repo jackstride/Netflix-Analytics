@@ -2,7 +2,7 @@ import React, { useRef, useEffect, forwardRef } from "react";
 import "./index.css";
 import "./media.css";
 
-import StockData from "./Components/StockData";
+import StockData from "./Components/stockData";
 import Header from "./Components/Header";
 import StreamingStats from "./Components/StreamingCompetition";
 import FitlerChart from "./Components/filterChart";
