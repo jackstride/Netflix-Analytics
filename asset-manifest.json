@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/static/css/main.8eb55b73.chunk.css",
+    "main.js": "/static/js/main.634013a7.chunk.js",
+    "main.js.map": "/static/js/main.634013a7.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.107bb8ca.js",
+    "runtime-main.js.map": "/static/js/runtime-main.107bb8ca.js.map",
+    "static/js/2.878ddbaa.chunk.js": "/static/js/2.878ddbaa.chunk.js",
+    "static/js/2.878ddbaa.chunk.js.map": "/static/js/2.878ddbaa.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.30be61cedc6dfa6f8ea7414c706d3cfc.js": "/precache-manifest.30be61cedc6dfa6f8ea7414c706d3cfc.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.8eb55b73.chunk.css.map": "/static/css/main.8eb55b73.chunk.css.map",
+    "static/js/2.878ddbaa.chunk.js.LICENSE.txt": "/static/js/2.878ddbaa.chunk.js.LICENSE.txt",
+    "static/media/NetflixShows.csv": "/static/media/NetflixShows.f7ee365f.csv",
+    "static/media/StockData.csv": "/static/media/StockData.1d50c525.csv",
+    "static/media/StreamingCompetition.csv": "/static/media/StreamingCompetition.d269c914.csv",
+    "static/media/WorldwideSubscriptions.csv": "/static/media/WorldwideSubscriptions.5eba1105.csv",
+    "static/media/analytics.0e422ecd.svg": "/static/media/analytics.0e422ecd.svg",
+    "static/media/hoc3.png": "/static/media/hoc3.14d8e46f.png",
+    "static/media/info-solid.8d1eda74.svg": "/static/media/info-solid.8d1eda74.svg",
+    "static/media/netflix.png": "/static/media/netflix.7ece1bc1.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.107bb8ca.js",
+    "static/js/2.878ddbaa.chunk.js",
+    "static/css/main.8eb55b73.chunk.css",
+    "static/js/main.634013a7.chunk.js"
+  ]
+}
