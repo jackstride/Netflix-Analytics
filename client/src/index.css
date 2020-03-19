@@ -543,4 +543,9 @@ li::before {
 }
 
 
-/* Pie Chart */
+/* Model */
+
+.hover_modal {
+  position: absolute;
+  background-color: blue;
+}

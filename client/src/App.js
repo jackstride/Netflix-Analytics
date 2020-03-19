@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, forwardRef } from "react";
+import React, { useState } from "react";
 import "./index.css";
 import "./media.css";
 
@@ -11,10 +11,14 @@ import DonutChart from "./Components/DonutChart";
 import Intro from "./Components/Intro";
 import HightRatedGenres from "./Components/HighRatedGenres";
 import AverageRunTime from "./Components/AverageRunTime";
+import Modal from "./Components/Modal";
 
 let App = () => {
+  let [position, setPosition] = useState();
+  let [show, setShow] = useState(false);
   return (
-    <div>
+    <div style={{ position: "relative" }}>
+      {show ? <Modal position={position} /> : null}
       <Intro />
       <div className="app_container">
         <Header />
@@ -25,7 +29,17 @@ let App = () => {
         </div>
         <section className="col-1 partone">
           <div className="graph_title">
-            <h2>Netflix Subscriptions by Year</h2>
+            <h2
+              onMouseOver={e => {
+                setShow(true);
+                setPosition({
+                  x: e.clientX,
+                  y: e.clientY
+                });
+              }}
+            >
+              Netflix Subscriptions by Year
+            </h2>
           </div>
           <div className="graph_title">
             <h2>Shows rated by IMDB</h2>
