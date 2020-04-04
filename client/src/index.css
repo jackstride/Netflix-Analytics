@@ -409,7 +409,7 @@ p {
     "title title2"
     "chart1 chart2"
     "tag1 tag2";
-  grid-template-rows: 50px 300px 50px;
+  grid-template-rows: 75px 300px 50px;
   margin-bottom: 100px;
   gap: 10px;
 }
@@ -572,17 +572,21 @@ li::before {
 .modal {
   position: absolute;
   top: 100%;
-  left: 0%;
-  background-color: #f4f4f4;
+  margin-top: 10px;
+  left: 10px;
+  background-color: white;
   height: 200px;
   z-index: 1;
-  width: 300px;
+  width: 400px;
   border-radius: 12px;
   padding: 5px;
 }
 
-.graph_title:nth-child(5) {
-  background-color: red;
+.modal p {
+  color: #ff0055 !important;
+  font-size: 16px;
+  line-height: 32px;
+  font-weight: 400;
 }
 
 /* Shadow */

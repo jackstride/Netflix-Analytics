@@ -12,23 +12,28 @@ const Title = ({ index, children }) => {
     },
     {
       title: "Top shows rated by IMDB",
-      bodyText: "Hell this is going to be a test and some infirmation",
+      bodyText:
+        "The rating is calculated by averaging all registered users who vote on IMDB. This is only a short selection. Netflix has many high rated shows.",
     },
     {
       title: "The start of streaming",
-      bodyText: "Hell this is going to be a test and some infirmation",
+      bodyText:
+        "Netflix began it's streaming service in 2007 where as Amazon begna their service in 2007. As time progressed, other companies began their own steaming service to rival the giants",
     },
     {
       title: "Rating by Genres",
-      bodyText: "Hell this is going to be a test and some infirmation",
+      bodyText:
+        "There are many genres on Netflix, here are a few that are highly scored on IMDB.",
     },
     {
       title: "Average length of one episode",
-      bodyText: "Hell this is going to be a test and some infirmation",
+      bodyText:
+        "The average show length from each genre ranges from half an hour to over 70 minutes. Best get ready for a binge watch.",
     },
     {
       title: "Netflix Stock Data",
-      bodyText: "Hell this is going to be a test and some infirmation",
+      bodyText:
+        "Netflix's stock price has flucated throughout the last for year. A noticeable rise was in October 2016 where Netflix published their third-quater earnings with strong internation subscriber growth. July 18th 2019 saw a decline in price due to a large drop in subscribers. ",
     },
   ]);
 
