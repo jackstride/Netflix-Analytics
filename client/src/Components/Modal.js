@@ -1,14 +1,9 @@
 import React, { Component } from "react";
 
-const Modal = ({ position }) => {
-  console.log(position);
+const Modal = ({ text }) => {
   return (
-    <div
-      style={position ? { top: position.y, left: position.x } : null}
-      className="hover_modal"
-    >
-      <h2> Hello </h2>
-      <p> This is going to be a test</p>
+    <div className="modal">
+      <p style={{ color: "black" }}>{text}</p>
     </div>
   );
 };

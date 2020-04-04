@@ -12,14 +12,20 @@ import Intro from "./Components/Intro";
 import HightRatedGenres from "./Components/HighRatedGenres";
 import AverageRunTime from "./Components/AverageRunTime";
 import Modal from "./Components/Modal";
+import Title from "./Components/Title";
 
 let App = () => {
-  let [position, setPosition] = useState();
-  let [show, setShow] = useState(false);
+  let [show, setShow] = useState({
+    one: false,
+    two: false,
+    three: false,
+    four: false,
+    five: false,
+    six: false,
+  });
   return (
     <div style={{ position: "relative" }}>
-      {show ? <Modal position={position} /> : null}
-      <Intro />
+      {/* <Intro /> */}
       <div className="app_container">
         <Header />
         <div className="a_question">
@@ -28,55 +34,25 @@ let App = () => {
           </h1>
         </div>
         <section className="col-1 partone">
-          <div className="graph_title">
-            <h2
-              onMouseOver={e => {
-                setShow(true);
-                setPosition({
-                  x: e.clientX,
-                  y: e.clientY
-                });
-              }}
-            >
-              Netflix Subscriptions by Year
-            </h2>
-          </div>
-          <div className="graph_title">
-            <h2>Shows rated by IMDB</h2>
-          </div>
+          <Title index="0" />
+          <Title index="1" />
           <YearlySubscriptions />
           <DonutChart />
         </section>
-        <div className="title">
-          <h2>Who are the competition</h2>
-        </div>
-        <section className="col-1 cicrle_group">
+        <Title index="2" />
+        <section className="col-1 cicrle_group shadow">
           <StreamingStats />
         </section>
-
         <section className="col-1 partThree">
-          <div className="bar_title">
-            <h2>Netflix Genres</h2>
-          </div>
-          <div className="bar_title">
-            <h2>Netflix Episodes</h2>
-          </div>
+          <Title index="3" />
+          <Title index="4" />
           <HightRatedGenres />
           <AverageRunTime />
-          <div className="tag1">
-            <span>Average Rating (IMDB)</span>
-          </div>
-          <div className="tag2">
-            <span>Average length (One Episode)</span>
-          </div>
         </section>
-        <div className="title">
-          <h2>Stock Data</h2>
-        </div>
-        <section className="col-1 stock">
+        <Title index="5" />
+        <section className="col-1 stock shadow">
           <StockData />
         </section>
-        <section className="genres"></section>
       </div>
     </div>
   );

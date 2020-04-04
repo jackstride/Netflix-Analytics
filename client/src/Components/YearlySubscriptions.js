@@ -9,12 +9,12 @@ export default class WorldSubscribers extends Component {
     super(props);
 
     this.state = {
-      data: []
+      data: [],
     };
   }
 
   componentDidMount() {
-    d3.csv(file).then(res => {
+    d3.csv(file).then((res) => {
       this.setState({ data: res });
       this.chart();
     });
@@ -27,10 +27,7 @@ export default class WorldSubscribers extends Component {
       document.getElementById("yearly_bar").offsetHeight - margin.left;
 
     // set the ranges
-    var x = d3
-      .scaleBand()
-      .range([0, width])
-      .padding(0.6);
+    var x = d3.scaleBand().range([0, width]).padding(0.6);
 
     var y = d3.scaleLinear().range([height, 0]);
 
@@ -44,22 +41,22 @@ export default class WorldSubscribers extends Component {
 
     var aspect = width / height,
       chart = d3.select("#yearly_bar");
-    d3.select(window).on("resize", function() {
+    d3.select(window).on("resize", function () {
       var targetWidth = chart.node().getBoundingClientRect().width;
       chart.attr("width", targetWidth);
       chart.attr("height", targetWidth / aspect);
     });
 
     x.domain(
-      this.state.data.map(function(d) {
+      this.state.data.map(function (d) {
         return d.year;
       })
     );
     y.domain([
       30,
-      d3.max(this.state.data, function(d) {
+      d3.max(this.state.data, function (d) {
         return 190;
-      })
+      }),
     ]);
 
     svg
@@ -78,18 +75,18 @@ export default class WorldSubscribers extends Component {
       .enter()
       .append("rect")
       .attr("class", "bar")
-      .attr("x", function(d) {
+      .attr("x", function (d) {
         return x(d.year);
       })
       .attr("rx", "5")
       .attr("width", x.bandwidth())
-      .attr("y", function(d) {
+      .attr("y", function (d) {
         return y(30);
       })
       .on("mouseover", (d, i, svg) => {
         document.getElementsByClassName("year")[0].innerText = d.year;
         document.getElementsByClassName("users")[0].innerText =
-          d.number + " Million Ussers";
+          d.number + " Million";
         d3.select(svg[i])
           .transition()
           .delay(0)
@@ -104,13 +101,13 @@ export default class WorldSubscribers extends Component {
           .attr("height", height - y(d.number));
       })
       .transition()
-      .attr("y", function(d) {
+      .attr("y", function (d) {
         return y(d.number);
       })
       .duration(1000)
       .delay(2000)
 
-      .attr("height", function(d) {
+      .attr("height", function (d) {
         return height - y(d.number);
       });
 
@@ -125,11 +122,11 @@ export default class WorldSubscribers extends Component {
 
   render() {
     return (
-      <div className="yearly">
+      <div className="yearly shadow">
         <div className="yearly_info">
-          <h6>Netflix</h6>
+          <h6>Users</h6>
           <h3 className="year">2013</h3>
-          <h4 className="users">41.43 Million Users</h4>
+          <h4 className="users">41.43 Million</h4>
         </div>
         <div id="yearly_bar"></div>
       </div>

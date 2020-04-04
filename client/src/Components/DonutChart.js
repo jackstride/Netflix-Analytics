@@ -7,15 +7,15 @@ export default class DonutChart extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: ""
+      data: "",
     };
   }
 
   // Fethc and filter data
   componentDidMount() {
-    d3.csv(file).then(res => {
+    d3.csv(file).then((res) => {
       let data = res;
-      data = data.filter(data => data.IMDB_Rating >= 89);
+      data = data.filter((data) => data.IMDB_Rating >= 89);
       this.setState({ data: data });
       this.chart();
     });
@@ -71,14 +71,11 @@ export default class DonutChart extends Component {
       .append("g")
       .append("path")
       .attr("d", arc)
-      .attr("fill", "#323232");
+      .attr("fill", "#e9e9e9");
 
     let g2 = g.append("g").attr("class", "test");
 
-    let path2 = g2
-      .append("path")
-      .attr("d", arc2)
-      .attr("fill", "#FF0055");
+    let path2 = g2.append("path").attr("d", arc2).attr("fill", "#FF0055");
 
     let percent = svg
       .append("text")
@@ -105,15 +102,12 @@ export default class DonutChart extends Component {
       .append("div")
       .attr("class", "donut_row")
       .append("text")
-      .text(d => {
+      .text((d) => {
         return ` ${d.Title}`;
       })
       .on("mouseover", (d, i) => {
         arc2.endAngle(scale(d.IMDB_Rating));
-        path2
-          .transition()
-          .duration(1000)
-          .attr("d", arc2);
+        path2.transition().duration(1000).attr("d", arc2);
         percent.text(` ${d.IMDB_Rating}%`);
         percent
           .append("tspan")
@@ -128,7 +122,7 @@ export default class DonutChart extends Component {
 
   render() {
     return (
-      <div className="partTwo">
+      <div className="partTwo shadow">
         <div id="donutchart"></div>
       </div>
     );

@@ -8,14 +8,14 @@ export default class StreamingStats extends Component {
     super(props);
 
     this.state = {
-      data: ""
+      data: "",
     };
   }
 
   componentDidMount() {
-    d3.csv(file).then(res => {
+    d3.csv(file).then((res) => {
       let dataset = {
-        children: res
+        children: res,
       };
       this.setState({ data: dataset });
       this.chart();
@@ -28,7 +28,7 @@ export default class StreamingStats extends Component {
     var bubble = d3
       .pack(this.state.data)
       .size([diameter, diameter])
-      .padding(10);
+      .padding(20);
 
     var svg = d3
       .select("#bubbleChart")
@@ -37,7 +37,7 @@ export default class StreamingStats extends Component {
       .attr("height", diameter)
       .attr("class", "bubble");
 
-    var nodes = d3.hierarchy(this.state.data).sum(function(d) {
+    var nodes = d3.hierarchy(this.state.data).sum(function (d) {
       return d.subscribers;
     });
 
@@ -45,17 +45,17 @@ export default class StreamingStats extends Component {
       .selectAll(".node")
       .data(bubble(nodes).descendants())
       .enter()
-      .filter(function(d) {
+      .filter(function (d) {
         return !d.children;
       })
       .append("g")
       .attr("class", "node")
-      .attr("transform", function(d) {
+      .attr("transform", function (d) {
         return "translate(" + d.x + "," + d.y + ")";
       })
       .attr("cursor", "pointer");
 
-    node.append("title").text(function(d) {
+    node.append("title").text(function (d) {
       return d.data.subscribers;
     });
 
@@ -73,7 +73,7 @@ export default class StreamingStats extends Component {
 
     node
       .append("circle")
-      .attr("r", function(d) {
+      .attr("r", function (d) {
         return d.r;
       })
       .style("stroke", "#FF0055")
@@ -117,10 +117,7 @@ export default class StreamingStats extends Component {
           .append("tspan")
           .attr("class", "tooltip_header")
           .text("Launch Date: ");
-        text
-          .select(".startDate")
-          .append("tspan")
-          .text(d.data.launchDate);
+        text.select(".startDate").append("tspan").text(d.data.launchDate);
 
         text
           .append("text")
@@ -132,10 +129,7 @@ export default class StreamingStats extends Component {
           .append("tspan")
           .attr("class", "tooltip_header")
           .text("Subscribers(Million): ");
-        text
-          .select(".subs")
-          .append("tspan")
-          .text(d.data.subscribers);
+        text.select(".subs").append("tspan").text(d.data.subscribers);
 
         text
           .append("text")
@@ -147,10 +141,7 @@ export default class StreamingStats extends Component {
           .append("tspan")
           .attr("class", "tooltip_header")
           .text("Area Coverage: ");
-        text
-          .select(".area")
-          .append("tspan")
-          .text(d.data.area);
+        text.select(".area").append("tspan").text(d.data.area);
       })
       .on("mouseout", (d, i, nodes) => {
         tooltip.style("visibility", "hidden");
@@ -160,10 +151,10 @@ export default class StreamingStats extends Component {
       .append("text")
       .attr("dy", ".2em")
       .style("text-anchor", "middle")
-      .text(function(d) {
+      .text(function (d) {
         return d.data.service;
       })
-      .attr("fill", "white");
+      .attr("fill", "#0f0e1f");
 
     d3.select(this.frameElement).style("height", diameter + "px");
   };
