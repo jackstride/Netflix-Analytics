@@ -37,6 +37,12 @@ export default class StreamingStats extends Component {
       .attr("height", diameter)
       .attr("class", "bubble");
 
+    // d3.select(window).on("resize", () => {
+    //   let height = document.querySelector("#bubbleChart").offsetWidth;
+
+    //   bubble.size([height, height]);
+    // });
+
     var nodes = d3.hierarchy(this.state.data).sum(function (d) {
       return d.subscribers;
     });

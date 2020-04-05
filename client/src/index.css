@@ -473,10 +473,17 @@ span {
   position: absolute;
   width: 325px;
   height: 125px;
-  background-color: #f2f9ff;
+  background-color: #ff0055;
   pointer-events: none;
   border-radius: 12px;
   transform: translate(10px, 10px);
+}
+
+.close,
+.high,
+.low,
+.open {
+  fill: white;
 }
 
 .stock_toggles {

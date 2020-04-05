@@ -8,12 +8,12 @@ export default class WorldSubscribers extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: []
+      data: [],
     };
   }
 
   componentDidMount() {
-    d3.csv(file).then(res => {
+    d3.csv(file).then((res) => {
       this.setState({ data: res });
       this.chart();
     });
@@ -37,10 +37,10 @@ export default class WorldSubscribers extends Component {
 
     var valueline = d3
       .line()
-      .x(function(d) {
+      .x(function (d) {
         return x(d.date);
       })
-      .y(function(d) {
+      .y(function (d) {
         return y(d.Close);
       });
 
@@ -64,21 +64,21 @@ export default class WorldSubscribers extends Component {
       .attr("dominant-baseline", "middle")
       .attr("width", "100%");
 
-    this.state.data.forEach(function(d) {
+    this.state.data.forEach(function (d) {
       d.date = parseTime(d.date);
       d.Close = +d.Close;
     });
 
     x.domain(
-      d3.extent(this.state.data, function(d) {
+      d3.extent(this.state.data, function (d) {
         return d.date;
       })
     );
     y.domain([
       0,
-      d3.max(this.state.data, function(d) {
+      d3.max(this.state.data, function (d) {
         return d.Close;
-      })
+      }),
     ]);
 
     let line = svg
@@ -86,7 +86,7 @@ export default class WorldSubscribers extends Component {
       .attr("class", "line")
       .attr("d", valueline(this.state.data));
 
-    let createDots = chartData => {
+    let createDots = (chartData) => {
       d3.selectAll("#stockData circle").remove();
       let dots = svg
         .selectAll("dot")
@@ -94,21 +94,23 @@ export default class WorldSubscribers extends Component {
         .enter()
         .append("circle")
         .attr("r", 5)
-        .attr("cx", function(d) {
+        .attr("cx", function (d) {
           return x(d.date);
         })
-        .attr("cy", function(d) {
+        .attr("cy", function (d) {
           return y(d.Close);
         })
         .style("cursor", "pointer")
         .style("fill", "transparent")
-        .on("mouseover", function(d, i, nodes) {
+        .on("mouseover", function (d, i, nodes) {
           text.select(".bubbleTitle").remove();
           text.select(".bubblesub").remove();
           text.select(".open").remove();
           text.select(".close").remove();
           text.select(".high").remove();
           text.select(".low").remove();
+
+          let format = d3.timeFormat("%B %d, %Y");
 
           d3.select(nodes[i]).style("fill", "red");
           stockTooltip
@@ -125,7 +127,8 @@ export default class WorldSubscribers extends Component {
             .attr("x", "20")
             .attr("dy", "20")
             .attr("class", "bubbleTitle")
-            .text(d.date);
+            .text(format(d.date))
+            .style("fill", "white");
           //Open
           text
             .append("text")
@@ -137,10 +140,7 @@ export default class WorldSubscribers extends Component {
             .append("tspan")
             .attr("class", "tooltip_header")
             .text("Open: ");
-          text
-            .select(".open")
-            .append("tspan")
-            .text(d.Open);
+          text.select(".open").append("tspan").text(d.Open);
           //Close
           text
             .append("text")
@@ -152,10 +152,7 @@ export default class WorldSubscribers extends Component {
             .append("tspan")
             .attr("class", "tooltip_header")
             .text("Close: ");
-          text
-            .select(".close")
-            .append("tspan")
-            .text(d.Close);
+          text.select(".close").append("tspan").text(d.Close);
           //High
           text
             .append("text")
@@ -167,10 +164,7 @@ export default class WorldSubscribers extends Component {
             .append("tspan")
             .attr("class", "tooltip_header")
             .text("High: ");
-          text
-            .select(".high")
-            .append("tspan")
-            .text(d.High);
+          text.select(".high").append("tspan").text(d.High);
           //High
           text
             .append("text")
@@ -182,10 +176,7 @@ export default class WorldSubscribers extends Component {
             .append("tspan")
             .attr("class", "tooltip_header")
             .text("Low: ");
-          text
-            .select(".low")
-            .append("tspan")
-            .text(d.Low);
+          text.select(".low").append("tspan").text(d.Low);
         })
         .on("mouseleave", (d, i, nodes) => {
           d3.select(nodes[i]).style("fill", "transparent");
@@ -201,35 +192,26 @@ export default class WorldSubscribers extends Component {
       .attr("transform", "translate(0," + height + ")")
       .call(d3.axisBottom(x));
 
-    svg
-      .append("g")
-      .attr("class", "y-axis")
-      .call(d3.axisLeft(y));
+    svg.append("g").attr("class", "y-axis").call(d3.axisLeft(y));
 
-    let setChart = chartData => {
+    let setChart = (chartData) => {
       x.domain(
-        d3.extent(chartData, function(d) {
-          return d.date;
+        d3.extent(chartData, function (d) {
+          return d.date.substr(1, 3);
         })
       );
       y.domain([
         0,
-        d3.max(chartData, function(d) {
+        d3.max(chartData, function (d) {
           return d.Close;
-        })
+        }),
       ]);
-      svg
-        .select(".x-axis")
-        .transition(750)
-        .call(d3.axisBottom(x));
-      svg
-        .select(".y-axis")
-        .transition(750)
-        .call(d3.axisLeft(y));
+      svg.select(".x-axis").transition(750).call(d3.axisBottom(x));
+      svg.select(".y-axis").transition(750).call(d3.axisLeft(y));
       line.attr("d", valueline(chartData));
     };
 
-    let update = option => {
+    let update = (option) => {
       if (option == "0") {
         setChart(this.state.data);
         createDots(this.state.data);
@@ -237,7 +219,7 @@ export default class WorldSubscribers extends Component {
         let start = new Date("01/01/" + option);
         let end = new Date("12/31/" + option);
 
-        let newData = this.state.data.filter(data => {
+        let newData = this.state.data.filter((data) => {
           return new Date(data.date) >= start && new Date(data.date) <= end;
         });
         setChart(newData);
@@ -248,6 +230,22 @@ export default class WorldSubscribers extends Component {
     d3.select(".stock_toggles>select").on("change", (d, i, nodes) => {
       let option = nodes[i].value;
       update(option);
+    });
+
+    d3.select(window).on("resize", () => {
+      width =
+        document.querySelector("#stockData").offsetWidth -
+        margin.left -
+        margin.right;
+
+      height =
+        document.querySelector("#stockData").offsetHeight -
+        margin.top -
+        margin.bottom;
+
+      d3.select("#stockData svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom);
     });
   };
 
