@@ -1,11 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect, forwardRef } from "react";
 
 import Logo from "../images/netflix.png";
 import { ReactComponent as SVG } from "../images/analytics.svg";
 import { ReactComponent as Info } from "../images/info-solid.svg";
 
 const Header = () => {
+  let ref = useRef();
   let [show, setShow] = useState(false);
+
+  useEffect(() => {
+    console.log(ref);
+  });
+
   return (
     <div className="header">
       <img src={Logo} alt="Netflix"></img>
@@ -22,6 +28,7 @@ const Header = () => {
       </div>
       {show ? (
         <Panel
+          ref={ref}
           close={() => {
             setShow(!show);
           }}
@@ -33,14 +40,27 @@ const Header = () => {
 
 export default Header;
 
-let Panel = ({ close }) => {
+let Panel = forwardRef(({ close }, ref) => {
+  useEffect(() => {
+    let handleClick = (e) => {
+      if (!ref.current.contains(e.target)) {
+        close();
+      }
+    };
+
+    document.addEventListener("mousedown", handleClick);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClick);
+    };
+  });
   return (
     <div className="information_panel">
       <div className="information_container">
         <div onClick={close} className="close">
           X
         </div>
-        <div className="content">
+        <div ref={ref} className="content">
           <h1>An Overview..</h1>
           <p>
             Since being founed in 1997, Netflix has grown the become one of the
@@ -75,4 +95,4 @@ let Panel = ({ close }) => {
       </div>
     </div>
   );
-};
+});
