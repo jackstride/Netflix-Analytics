@@ -36,12 +36,12 @@ export default Header;
 let Panel = ({ close }) => {
   return (
     <div className="information_panel">
-      <div className="information_text">
+      <div className="information_container">
         <div onClick={close} className="close">
           X
         </div>
         <div className="content">
-          <h1> Netflix</h1>
+          <h1>An Overview..</h1>
           <p>
             Since being founed in 1997, Netflix has grown the become one of the
             Largest streaming services serving over 190 counties. An exploration

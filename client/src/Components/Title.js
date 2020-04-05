@@ -16,7 +16,7 @@ const Title = ({ index, children }) => {
         "The rating is calculated by averaging all registered users who vote on IMDB. This is only a short selection. Netflix has many high rated shows.",
     },
     {
-      title: "The start of streaming",
+      title: "The competitors",
       bodyText:
         "Netflix began it's streaming service in 2007 where as Amazon begna their service in 2007. As time progressed, other companies began their own steaming service to rival the giants",
     },
