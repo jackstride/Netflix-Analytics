@@ -92,6 +92,13 @@ export default class DonutChart extends Component {
       .attr("x", "50%")
       .attr("y", "60%");
 
+    let date = percent
+      .append("tspan")
+      .text("Date")
+      .attr("text-anchor", "middle")
+      .attr("x", "50%")
+      .attr("y", "70%");
+
     let text = d3
       .select(".partTwo")
       .append("div")
@@ -106,15 +113,23 @@ export default class DonutChart extends Component {
         return ` ${d.Title}`;
       })
       .on("mouseover", (d, i) => {
+        console.log(d);
         arc2.endAngle(scale(d.IMDB_Rating));
         path2.transition().duration(1000).attr("d", arc2);
         percent.text(` ${d.IMDB_Rating}%`);
+        date.text(` ${d.premiereDate}%`);
         percent
           .append("tspan")
           .text(d.Title)
           .attr("text-anchor", "middle")
           .attr("x", "50%")
           .attr("y", "60%");
+        percent
+          .append("tspan")
+          .text(d.premiereDate)
+          .attr("text-anchor", "middle")
+          .attr("x", "50%")
+          .attr("y", "70%");
       });
   };
 
