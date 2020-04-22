@@ -1,30 +1,31 @@
 {
   "files": {
-    "main.css": "/Netflix-Analytics/static/css/main.6fa03854.chunk.css",
-    "main.js": "/Netflix-Analytics/static/js/main.1a600f8d.chunk.js",
-    "main.js.map": "/Netflix-Analytics/static/js/main.1a600f8d.chunk.js.map",
+    "main.css": "/Netflix-Analytics/static/css/main.58b2aab1.chunk.css",
+    "main.js": "/Netflix-Analytics/static/js/main.06b3878f.chunk.js",
+    "main.js.map": "/Netflix-Analytics/static/js/main.06b3878f.chunk.js.map",
     "runtime-main.js": "/Netflix-Analytics/static/js/runtime-main.1ed35051.js",
     "runtime-main.js.map": "/Netflix-Analytics/static/js/runtime-main.1ed35051.js.map",
-    "static/js/2.8c42c998.chunk.js": "/Netflix-Analytics/static/js/2.8c42c998.chunk.js",
-    "static/js/2.8c42c998.chunk.js.map": "/Netflix-Analytics/static/js/2.8c42c998.chunk.js.map",
+    "static/js/2.b16c0618.chunk.js": "/Netflix-Analytics/static/js/2.b16c0618.chunk.js",
+    "static/js/2.b16c0618.chunk.js.map": "/Netflix-Analytics/static/js/2.b16c0618.chunk.js.map",
     "index.html": "/Netflix-Analytics/index.html",
-    "precache-manifest.dc323570bf05bfd452cab13cd49ef0e4.js": "/Netflix-Analytics/precache-manifest.dc323570bf05bfd452cab13cd49ef0e4.js",
+    "precache-manifest.6b35a04822129d03928af270bc8e3e80.js": "/Netflix-Analytics/precache-manifest.6b35a04822129d03928af270bc8e3e80.js",
     "service-worker.js": "/Netflix-Analytics/service-worker.js",
-    "static/css/main.6fa03854.chunk.css.map": "/Netflix-Analytics/static/css/main.6fa03854.chunk.css.map",
-    "static/js/2.8c42c998.chunk.js.LICENSE.txt": "/Netflix-Analytics/static/js/2.8c42c998.chunk.js.LICENSE.txt",
+    "static/css/main.58b2aab1.chunk.css.map": "/Netflix-Analytics/static/css/main.58b2aab1.chunk.css.map",
+    "static/js/2.b16c0618.chunk.js.LICENSE.txt": "/Netflix-Analytics/static/js/2.b16c0618.chunk.js.LICENSE.txt",
     "static/media/NetflixShows.csv": "/Netflix-Analytics/static/media/NetflixShows.f7ee365f.csv",
     "static/media/StockData.csv": "/Netflix-Analytics/static/media/StockData.1d50c525.csv",
     "static/media/StreamingCompetition.csv": "/Netflix-Analytics/static/media/StreamingCompetition.d269c914.csv",
     "static/media/WorldwideSubscriptions.csv": "/Netflix-Analytics/static/media/WorldwideSubscriptions.5eba1105.csv",
     "static/media/analytics.0e422ecd.svg": "/Netflix-Analytics/static/media/analytics.0e422ecd.svg",
+    "static/media/arrow-up-solid.svg": "/Netflix-Analytics/static/media/arrow-up-solid.5f95ff2c.svg",
     "static/media/hoc3.png": "/Netflix-Analytics/static/media/hoc3.14d8e46f.png",
     "static/media/info-solid.8d1eda74.svg": "/Netflix-Analytics/static/media/info-solid.8d1eda74.svg",
     "static/media/netflix.png": "/Netflix-Analytics/static/media/netflix.7ece1bc1.png"
   },
   "entrypoints": [
     "static/js/runtime-main.1ed35051.js",
-    "static/js/2.8c42c998.chunk.js",
-    "static/css/main.6fa03854.chunk.css",
-    "static/js/main.1a600f8d.chunk.js"
+    "static/js/2.b16c0618.chunk.js",
+    "static/css/main.58b2aab1.chunk.css",
+    "static/js/main.06b3878f.chunk.js"
   ]
 }
