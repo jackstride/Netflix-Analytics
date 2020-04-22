@@ -52,7 +52,7 @@ export default class DonutChart extends Component {
             <h3>{this.state.singleData.Major_Genre}</h3>
           </div>
           <div className="item_info">
-            <h5>Release Data</h5>
+            <h5>Release Date</h5>
             <h3>{this.state.singleData.premiereDate}</h3>
           </div>
           <div className="item_info">
