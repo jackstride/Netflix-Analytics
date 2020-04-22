@@ -65,8 +65,8 @@ export default class DonutChart extends Component {
   };
 
   chart = () => {
-    let height = 400;
-    let width = 400;
+    let height = 380;
+    let width = 380;
     let thickness = 40;
     let duration = 750;
     let color = d3.scaleOrdinal(d3.schemeCategory10);
