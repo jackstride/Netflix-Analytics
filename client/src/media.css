@@ -1,10 +1,11 @@
+/* Desktop */
 @media only screen and (max-width: 1440px) {
     .app_container {
         width: 90%;
     }
 }
 
-
+/* Small Desktop */
 @media only screen and (max-width: 1024px) {
     .information_container {
         width: 70%;
@@ -12,7 +13,7 @@
 }
 
 
-
+/* Tablet */
 @media only screen and (max-width: 768px) {
 
     .partone {
@@ -38,5 +39,22 @@
 
     .information_container {
         width: 90%;
+    }
+
+    .content>p {
+        width: 90%;
+    }
+}
+
+/* Large Phone Desktop */
+
+@media only screen and (max-width: 425px) {
+    .header>img {
+        height: 60px;
+    }
+
+    h1 {
+        font-size: 52px;
+        line-height: 48px;
     }
 }

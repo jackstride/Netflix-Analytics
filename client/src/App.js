@@ -5,7 +5,6 @@ import "./media.css";
 import StockData from "./Components/stockData";
 import Header from "./Components/Header";
 import StreamingStats from "./Components/StreamingCompetition";
-import FitlerChart from "./Components/filterChart";
 import YearlySubscriptions from "./Components/YearlySubscriptions";
 import DonutChart from "./Components/DonutChart";
 import Intro from "./Components/Intro";
@@ -15,14 +14,6 @@ import Modal from "./Components/Modal";
 import Title from "./Components/Title";
 
 let App = () => {
-  let [show, setShow] = useState({
-    one: false,
-    two: false,
-    three: false,
-    four: false,
-    five: false,
-    six: false,
-  });
   return (
     <div style={{ position: "relative" }}>
       {/* <Intro /> */}

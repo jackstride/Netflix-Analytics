@@ -63,11 +63,16 @@ let Panel = forwardRef(({ close }, ref) => {
         <div ref={ref} className="content">
           <h1>An Overview..</h1>
           <p>
-            Since being founed in 1997, Netflix has grown the become one of the
-            Largest streaming services serving over 190 counties. An exploration
-            into it's success and statistics has proven difficult with the
-            company being overly secure abouts its numbers. The following
-            statistics has been collected using the following websites:
+            Since being founed in 1997, Netflix has grown to become one of the
+            largest streaming services accessible in over 190 counties. This
+            dashboard aims to explore the growth over a range of years and if
+            original content, the genre of content or the length time are
+            factors to its growth.<br></br>Subscription numbers and stock price
+            information are closley linked with release dates of Netflix
+            favourites but offer unusual insgihts. See if you can spot any!{" "}
+            <br></br>
+            The following statistics has been collected using the following
+            websites:
           </p>
           <ul>
             <li>

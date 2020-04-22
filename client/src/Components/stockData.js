@@ -197,7 +197,7 @@ export default class WorldSubscribers extends Component {
     let setChart = (chartData) => {
       x.domain(
         d3.extent(chartData, function (d) {
-          return d.date.substr(1, 3);
+          return d.date;
         })
       );
       y.domain([
@@ -253,7 +253,7 @@ export default class WorldSubscribers extends Component {
     return (
       <div className="container col-1">
         <div className="stock_toggles">
-          <select defaultValue="0" onChange={this.getYear}>
+          <select defaultValue="0">
             <option value="0">All</option>
             <option value="2016">2016</option>
             <option value="2017">2017</option>
