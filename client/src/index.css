@@ -660,13 +660,16 @@ li::before {
   position: absolute;
   top: 100%;
   margin-top: 10px;
-  left: 10px;
   background-color: white;
   height: 200px;
+  height: fit-content;
   z-index: 1;
   width: 400px;
   border-radius: 12px;
   padding: 5px;
+  -webkit-box-shadow: 3px 10px 19px -8px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 3px 10px 19px -8px rgba(0, 0, 0, 0.1);
+  box-shadow: 3px 10px 19px -8px rgba(0, 0, 0, 0.1);
 }
 
 .modal p {
@@ -674,6 +677,7 @@ li::before {
   font-size: 15px;
   line-height: 32px;
   font-weight: 400;
+  padding: 10px 10px;
 }
 
 /* Shadow */
