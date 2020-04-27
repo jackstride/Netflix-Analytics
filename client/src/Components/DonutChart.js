@@ -16,7 +16,6 @@ export default class DonutChart extends Component {
       showLength: "all",
     };
   }
-
   // Fethc and filter data
   componentDidMount() {
     d3.csv(file).then((res) => {
@@ -33,9 +32,8 @@ export default class DonutChart extends Component {
 
   filter = (e) => {
     let getYear = this.state.year;
-
     let getLength = this.state.showLength;
-
+    let finalData;
     // Set value of year or show length
     if (e.target.className == "length") {
       this.setState({ showLength: e.target.value });
@@ -53,25 +51,23 @@ export default class DonutChart extends Component {
         let finish = new Date("12/31/" + getYear);
         return dateRange >= start && dateRange <= finish;
       });
-      this.setState({ filteredData: data });
+      finalData = data;
     } else {
-      this.setState({ filteredData: this.state.data });
-      console.log(this.state.filteredData);
+      console.log("this");
+      finalData = this.state.data;
     }
 
     // Check value of length
     if (getLength != "all") {
-      let data = this.state.filteredData.filter((data) => {
+      let data = finalData.filter((data) => {
         let newData = data.Max_Length;
         let start = getLength;
         let finish = parseInt(getLength) + 10;
-        console.log(finish);
         return newData >= getLength && newData <= finish;
       });
-      console.log(data);
       this.setState({ filteredData: data });
     } else {
-      return;
+      this.setState({ filteredData: finalData });
     }
   };
 

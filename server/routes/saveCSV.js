@@ -53,9 +53,7 @@ router.get("/streaming", (req, res) => {
   rp("https://en.wikipedia.org/wiki/Streaming_services").then(page => {
     let data = [];
     let dataset = {};
-
     let table = cheerio("table.wikitable>tbody", page).find("tr");
-
     table.each((i, elm) => {
       let length = cheerio("td", elm).length;
 
@@ -98,17 +96,14 @@ router.get("/streaming", (req, res) => {
       if (!launchDate) {
         launchDate = "Not Available";
       }
-
       if (!subscribers) {
         subscribers = 0;
       } else {
         subscribers = subscribers.replace(" million", "");
       }
-
       if (!area) {
         area = "Area count not available";
       }
-
       data[i] = {
         parent,
         service,
@@ -119,12 +114,10 @@ router.get("/streaming", (req, res) => {
     });
     data.splice(0, 1);
     data = data.filter(data => data.subscribers != 0);
-
     // Needed for d3 hierarchy
     dataset = {
       children: data
     };
-
     res.status(200).json({ dataset });
   });
 });
