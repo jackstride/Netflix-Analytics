@@ -121,9 +121,6 @@ export default class DonutChart extends Component {
             );
           })}
         </select>
-        <span>
-          <img src={Arrow}></img>
-        </span>
         <div className="select_info">
           <div className="item_info">
             <h5>Genre</h5>
