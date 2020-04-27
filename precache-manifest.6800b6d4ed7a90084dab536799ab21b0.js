@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "28306b9173ec6098ef0a8b0585babc66",
+    "revision": "90851a127ed72b7f3dbeea37c890c9ea",
     "url": "/Netflix-Analytics/index.html"
   },
   {
-    "revision": "083bcfc428c4cae4667e",
-    "url": "/Netflix-Analytics/static/css/main.58b2aab1.chunk.css"
+    "revision": "23fdc54e45750ca5f518",
+    "url": "/Netflix-Analytics/static/css/main.8261b0d4.chunk.css"
   },
   {
-    "revision": "ff1718fc4e4ecd481da2",
-    "url": "/Netflix-Analytics/static/js/2.b16c0618.chunk.js"
+    "revision": "4b680064d087c1d9e335",
+    "url": "/Netflix-Analytics/static/js/2.9413785c.chunk.js"
   },
   {
     "revision": "d8080348ff2064724b36f2ca2f82999a",
-    "url": "/Netflix-Analytics/static/js/2.b16c0618.chunk.js.LICENSE.txt"
+    "url": "/Netflix-Analytics/static/js/2.9413785c.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "083bcfc428c4cae4667e",
-    "url": "/Netflix-Analytics/static/js/main.893e88b0.chunk.js"
+    "revision": "23fdc54e45750ca5f518",
+    "url": "/Netflix-Analytics/static/js/main.9a6a369f.chunk.js"
   },
   {
     "revision": "471f3b976de682398b2e",

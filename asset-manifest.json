@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/Netflix-Analytics/static/css/main.58b2aab1.chunk.css",
-    "main.js": "/Netflix-Analytics/static/js/main.893e88b0.chunk.js",
-    "main.js.map": "/Netflix-Analytics/static/js/main.893e88b0.chunk.js.map",
+    "main.css": "/Netflix-Analytics/static/css/main.8261b0d4.chunk.css",
+    "main.js": "/Netflix-Analytics/static/js/main.9a6a369f.chunk.js",
+    "main.js.map": "/Netflix-Analytics/static/js/main.9a6a369f.chunk.js.map",
     "runtime-main.js": "/Netflix-Analytics/static/js/runtime-main.1ed35051.js",
     "runtime-main.js.map": "/Netflix-Analytics/static/js/runtime-main.1ed35051.js.map",
-    "static/js/2.b16c0618.chunk.js": "/Netflix-Analytics/static/js/2.b16c0618.chunk.js",
-    "static/js/2.b16c0618.chunk.js.map": "/Netflix-Analytics/static/js/2.b16c0618.chunk.js.map",
+    "static/js/2.9413785c.chunk.js": "/Netflix-Analytics/static/js/2.9413785c.chunk.js",
+    "static/js/2.9413785c.chunk.js.map": "/Netflix-Analytics/static/js/2.9413785c.chunk.js.map",
     "index.html": "/Netflix-Analytics/index.html",
-    "precache-manifest.01ca35bf9801d144f3d6d723d70dfbcd.js": "/Netflix-Analytics/precache-manifest.01ca35bf9801d144f3d6d723d70dfbcd.js",
+    "precache-manifest.6800b6d4ed7a90084dab536799ab21b0.js": "/Netflix-Analytics/precache-manifest.6800b6d4ed7a90084dab536799ab21b0.js",
     "service-worker.js": "/Netflix-Analytics/service-worker.js",
-    "static/css/main.58b2aab1.chunk.css.map": "/Netflix-Analytics/static/css/main.58b2aab1.chunk.css.map",
-    "static/js/2.b16c0618.chunk.js.LICENSE.txt": "/Netflix-Analytics/static/js/2.b16c0618.chunk.js.LICENSE.txt",
+    "static/css/main.8261b0d4.chunk.css.map": "/Netflix-Analytics/static/css/main.8261b0d4.chunk.css.map",
+    "static/js/2.9413785c.chunk.js.LICENSE.txt": "/Netflix-Analytics/static/js/2.9413785c.chunk.js.LICENSE.txt",
     "static/media/NetflixShows.csv": "/Netflix-Analytics/static/media/NetflixShows.f7ee365f.csv",
     "static/media/StockData.csv": "/Netflix-Analytics/static/media/StockData.1d50c525.csv",
     "static/media/StreamingCompetition.csv": "/Netflix-Analytics/static/media/StreamingCompetition.d269c914.csv",
@@ -24,8 +24,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.1ed35051.js",
-    "static/js/2.b16c0618.chunk.js",
-    "static/css/main.58b2aab1.chunk.css",
-    "static/js/main.893e88b0.chunk.js"
+    "static/js/2.9413785c.chunk.js",
+    "static/css/main.8261b0d4.chunk.css",
+    "static/js/main.9a6a369f.chunk.js"
   ]
 }
