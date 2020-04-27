@@ -11,7 +11,7 @@ const Title = ({ index, children }) => {
         "In 2019, Netflix has over 160 millions customers spanning over 40 countires. That's an increase of 125 million from 2013.",
     },
     {
-      title: "Top shows rated by IMDB",
+      title: "Original Show IMDB Rating",
       bodyText:
         "Users who are registed on IMDB are able to rate movies and tv shows. Here's a list of Netflix original content that has scored 80% or above.",
     },

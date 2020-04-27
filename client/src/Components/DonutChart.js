@@ -188,7 +188,7 @@ export default class DonutChart extends Component {
       .innerRadius(radius - thickness)
       .outerRadius(radius)
       .startAngle(scale(0))
-      .endAngle(scale(80));
+      .endAngle(scale(50));
 
     // let pie = d3.pie()
     // .value(function(d,i){
@@ -263,7 +263,7 @@ export default class DonutChart extends Component {
     // });
 
     d3.select(".donut_select>select").on("change", (d, i, nodes) => {
-      let item = this.state.data[nodes[0].value];
+      let item = this.state.filteredData[nodes[0].value];
       arc2.endAngle(scale(item.IMDB_Rating));
       path2.transition().duration(1000).attr("d", arc2);
       percent.text(` ${item.IMDB_Rating}%`);

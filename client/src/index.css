@@ -416,7 +416,6 @@ p {
   height: 50px;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
   padding: 10px 0px;
 }
 
@@ -435,6 +434,10 @@ p {
   font-size: 18px;
   color: rgb(77, 77, 77);
   width: 100%;
+}
+
+.donut_filters>label:nth-child(2) {
+  padding-left: 20px;
 }
 
 
