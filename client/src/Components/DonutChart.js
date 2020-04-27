@@ -25,7 +25,7 @@ export default class DonutChart extends Component {
       // data = data.filter((data) => data.IMDB_Rating >= 80);
       data = this.setState({ data: data, filteredData: data });
       this.setState({
-        singleData: this.state.data[0],
+        singleData: this.state.filteredData[0],
       });
       this.chart();
     });
@@ -56,19 +56,19 @@ export default class DonutChart extends Component {
       this.setState({ filteredData: data });
     } else {
       this.setState({ filteredData: this.state.data });
+      console.log(this.state.filteredData);
     }
 
     // Check value of length
     if (getLength != "all") {
       let data = this.state.filteredData.filter((data) => {
-        if (getLength >= 60) {
-          return data.Max_Length > getLength;
-        } else {
-          let start = getLength;
-          let finish = getLength + 10;
-          return data.Max_Length >= start && data.Max_Length <= finish;
-        }
+        let newData = data.Max_Length;
+        let start = getLength;
+        let finish = parseInt(getLength) + 10;
+        console.log(finish);
+        return newData >= getLength && newData <= finish;
       });
+      console.log(data);
       this.setState({ filteredData: data });
     } else {
       return;
@@ -79,32 +79,38 @@ export default class DonutChart extends Component {
     return (
       <div className="donut_select">
         <div className="donut_filters">
-          <select
-            className="year"
-            onChange={(e) => {
-              this.filter(e);
-            }}
-          >
-            <option value="all">All</option>
-            <option value="2013">2013</option>
-            <option value="2014">2014</option>
-            <option value="2015">2015</option>
-            <option value="2016">2016</option>
-            <option value="2017">2017</option>
-          </select>
-          <select
-            className="length"
-            onChange={(e) => {
-              this.filter(e);
-            }}
-          >
-            <option value="all">All</option>
-            <option value="20">20</option>
-            <option value="30">30</option>
-            <option value="40">40</option>
-            <option value="50">50</option>
-            <option value="60">Over an hour</option>
-          </select>
+          <label>
+            Select Year:
+            <select
+              className="year"
+              onChange={(e) => {
+                this.filter(e);
+              }}
+            >
+              <option value="all">All</option>
+              <option value="2013">2013</option>
+              <option value="2014">2014</option>
+              <option value="2015">2015</option>
+              <option value="2016">2016</option>
+              <option value="2017">2017</option>
+            </select>
+          </label>
+          <label>
+            Change length
+            <select
+              className="length"
+              onChange={(e) => {
+                this.filter(e);
+              }}
+            >
+              <option value="all">All</option>
+              <option value="20">20-30</option>
+              <option value="30">30-40</option>
+              <option value="40">40-50</option>
+              <option value="50">50-60</option>
+              <option value="60">Over an hour</option>
+            </select>
+          </label>
         </div>
         <select
           onChange={(e) => {

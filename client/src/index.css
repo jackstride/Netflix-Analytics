@@ -417,16 +417,24 @@ p {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-
+  padding: 10px 0px;
 }
 
-.donut_filters>select {
+.donut_filters>label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.donut_filters>label>select {
   height: 50px;
   background-color: #f4f4f4;
   border: none;
   padding: 5px 5px;
   font-size: 18px;
   color: rgb(77, 77, 77);
+  width: 100%;
 }
 
 
