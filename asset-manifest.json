@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/Netflix-Analytics/static/css/main.8261b0d4.chunk.css",
-    "main.js": "/Netflix-Analytics/static/js/main.9a6a369f.chunk.js",
-    "main.js.map": "/Netflix-Analytics/static/js/main.9a6a369f.chunk.js.map",
+    "main.js": "/Netflix-Analytics/static/js/main.7f5a5f2c.chunk.js",
+    "main.js.map": "/Netflix-Analytics/static/js/main.7f5a5f2c.chunk.js.map",
     "runtime-main.js": "/Netflix-Analytics/static/js/runtime-main.1ed35051.js",
     "runtime-main.js.map": "/Netflix-Analytics/static/js/runtime-main.1ed35051.js.map",
     "static/js/2.9413785c.chunk.js": "/Netflix-Analytics/static/js/2.9413785c.chunk.js",
     "static/js/2.9413785c.chunk.js.map": "/Netflix-Analytics/static/js/2.9413785c.chunk.js.map",
     "index.html": "/Netflix-Analytics/index.html",
-    "precache-manifest.6800b6d4ed7a90084dab536799ab21b0.js": "/Netflix-Analytics/precache-manifest.6800b6d4ed7a90084dab536799ab21b0.js",
+    "precache-manifest.4add7cc77102c029e7f5066e9780cf1a.js": "/Netflix-Analytics/precache-manifest.4add7cc77102c029e7f5066e9780cf1a.js",
     "service-worker.js": "/Netflix-Analytics/service-worker.js",
     "static/css/main.8261b0d4.chunk.css.map": "/Netflix-Analytics/static/css/main.8261b0d4.chunk.css.map",
     "static/js/2.9413785c.chunk.js.LICENSE.txt": "/Netflix-Analytics/static/js/2.9413785c.chunk.js.LICENSE.txt",
@@ -26,6 +26,6 @@
     "static/js/runtime-main.1ed35051.js",
     "static/js/2.9413785c.chunk.js",
     "static/css/main.8261b0d4.chunk.css",
-    "static/js/main.9a6a369f.chunk.js"
+    "static/js/main.7f5a5f2c.chunk.js"
   ]
 }
