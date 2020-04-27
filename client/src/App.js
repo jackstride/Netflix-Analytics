@@ -16,7 +16,7 @@ import Title from "./Components/Title";
 let App = () => {
   return (
     <div style={{ position: "relative" }}>
-      <Intro />
+      {/* <Intro /> */}
       <div className="app_container">
         <Header />
         <div className="a_question">

@@ -299,6 +299,10 @@ p {
 
 /* Donut Chart */
 
+#donutchart {
+  margin-top: 20px;
+}
+
 .partTwo {
   display: flex;
   align-items: center;
@@ -310,7 +314,6 @@ p {
   width: auto;
   display: flex;
   flex-direction: column;
-  padding: 20px 0px;
   width: 95%;
   margin: 0 auto;
 }
@@ -355,8 +358,9 @@ p {
 .donut_select {
   width: 90%;
   height: fit-content;
-  margin-top: 20px;
+  margin: auto 0;
   position: relative;
+
 }
 
 .donut_select>select {
@@ -367,6 +371,7 @@ p {
   font-size: 18px;
   color: rgb(77, 77, 77);
   padding-left: 20px;
+  margin-bottom: 20px;
 }
 
 .donut_select>span {
@@ -385,6 +390,7 @@ p {
   width: 90%;
   display: grid;
   grid-auto-rows: 50px;
+  grid-template-columns: 50% 50%;
   gap: 10px;
   margin-top: 10px;
 }

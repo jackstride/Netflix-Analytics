@@ -8,22 +8,22 @@ const Title = ({ index, children }) => {
     {
       title: "Netflix Subscriptions By Year",
       bodyText:
-        "According to Wikipedia, Netflix has over 160 millions customers spanning over 40 countires. ",
+        "In 2019, Netflix has over 160 millions customers spanning over 40 countires. That's an increase of 125 million from 2013.",
     },
     {
       title: "Top shows rated by IMDB",
       bodyText:
-        "The rating is calculated by averaging all registered users who vote on IMDB. This is only a short selection. Netflix has many high rated shows.",
+        "Users who are registed on IMDB are able to rate movies and tv shows. Here's a list of Netflix original content that has scored 80% or above.",
     },
     {
       title: "The competitors",
       bodyText:
-        "Netflix began it's streaming service in 2007 where as Amazon begna their service in 2007. As time progressed, other companies began their own steaming service to rival the giants",
+        "Netflix began it's streaming service in 2007 whilst Amazon Prime content began service in 2006. As time progressed, other companies began their own steaming service to rival the giants",
     },
     {
       title: "Rating by Genres",
       bodyText:
-        "There are many genres on Netflix, here are a few that are highly scored on IMDB.",
+        "Netflix consists of many genres. Here are some that scored high in ratings by watchers.",
     },
     {
       title: "Average length of one episode",
@@ -33,7 +33,7 @@ const Title = ({ index, children }) => {
     {
       title: "Netflix Stock Data",
       bodyText:
-        "Netflix's stock price has flucated throughout the last for year. A noticeable rise was in October 2016 where Netflix published their third-quater earnings with strong internation subscriber growth. July 18th 2019 saw a decline in price due to a large drop in subscribers. ",
+        "Netflix's stock price has flucated throughout the last for year. A noticeable rise was in October 2016 where Netflix published their third-quater earnings with strong internation subscriber growth. July 18th 2019 saw a decline in price due to a large drop in subscribers.",
     },
   ]);
 

@@ -10,7 +10,10 @@ export default class DonutChart extends Component {
     super(props);
     this.state = {
       data: "",
+      filteredData: "",
       singleData: "",
+      year: "all",
+      showLength: "all",
     };
   }
 
@@ -18,8 +21,9 @@ export default class DonutChart extends Component {
   componentDidMount() {
     d3.csv(file).then((res) => {
       let data = res;
-      data = data.filter((data) => data.IMDB_Rating >= 80);
-      this.setState({ data: data });
+      // Did filter by rating but changed to data to comparte with stock chart
+      // data = data.filter((data) => data.IMDB_Rating >= 80);
+      data = this.setState({ data: data, filteredData: data });
       this.setState({
         singleData: this.state.data[0],
       });
@@ -27,15 +31,89 @@ export default class DonutChart extends Component {
     });
   }
 
+  filter = (e) => {
+    let getYear = this.state.year;
+
+    let getLength = this.state.showLength;
+
+    // Set value of year or show length
+    if (e.target.className == "length") {
+      this.setState({ showLength: e.target.value });
+      getLength = e.target.value;
+    } else if (e.target.className == "year") {
+      this.setState({ year: e.target.value });
+      getYear = e.target.value;
+    }
+
+    // Check value of year
+    if (getYear != "all") {
+      let data = this.state.data.filter((data) => {
+        let dateRange = new Date(data.premiereDate);
+        let start = new Date("01/01/" + getYear);
+        let finish = new Date("12/31/" + getYear);
+        return dateRange >= start && dateRange <= finish;
+      });
+      this.setState({ filteredData: data });
+    } else {
+      this.setState({ filteredData: this.state.data });
+    }
+
+    // Check value of length
+    if (getLength != "all") {
+      let data = this.state.filteredData.filter((data) => {
+        if (getLength >= 60) {
+          return data.Max_Length > getLength;
+        } else {
+          let start = getLength;
+          let finish = getLength + 10;
+          return data.Max_Length >= start && data.Max_Length <= finish;
+        }
+      });
+      this.setState({ filteredData: data });
+    } else {
+      return;
+    }
+  };
+
   loadOptions = () => {
     return (
       <div className="donut_select">
+        <div className="donut_filters">
+          <select
+            className="year"
+            onChange={(e) => {
+              this.filter(e);
+            }}
+          >
+            <option value="all">All</option>
+            <option value="2013">2013</option>
+            <option value="2014">2014</option>
+            <option value="2015">2015</option>
+            <option value="2016">2016</option>
+            <option value="2017">2017</option>
+          </select>
+          <select
+            className="length"
+            onChange={(e) => {
+              this.filter(e);
+            }}
+          >
+            <option value="all">All</option>
+            <option value="20">20</option>
+            <option value="30">30</option>
+            <option value="40">40</option>
+            <option value="50">50</option>
+            <option value="60">Over an hour</option>
+          </select>
+        </div>
         <select
           onChange={(e) => {
-            this.setState({ singleData: this.state.data[e.target.value] });
+            this.setState({
+              singleData: this.state.filteredData[e.target.value],
+            });
           }}
         >
-          {this.state.data.map((item, index) => {
+          {this.state.filteredData.map((item, index) => {
             return (
               <option key={index} value={index}>
                 {item.Title}
@@ -58,6 +136,10 @@ export default class DonutChart extends Component {
           <div className="item_info">
             <h5>IMDB Rating</h5>
             <h3>{this.state.singleData.IMDB_Rating}</h3>
+          </div>
+          <div className="item_info">
+            <h5>Length</h5>
+            <h3>{this.state.singleData.Max_Length + " Minutes"}</h3>
           </div>
         </div>
       </div>
