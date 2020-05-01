@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import file from "../data/WorldwideSubscriptions.csv";
-const axios = require("axios");
 const d3 = require("d3");
 
 // Web scraping tutorial - https://www.freecodecamp.org/news/the-ultimate-guide-to-web-scraping-with-node-js-daa2027dcd3/

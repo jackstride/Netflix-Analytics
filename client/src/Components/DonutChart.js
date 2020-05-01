@@ -1,8 +1,5 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import file from "../data/NetflixShows.csv";
-import Arrow from "../images/arrow-up-solid.svg";
-import { timeHours } from "d3";
-const axios = require("axios");
 const d3 = require("d3");
 
 export default class DonutChart extends Component {
@@ -19,10 +16,9 @@ export default class DonutChart extends Component {
   // Fethc and filter data
   componentDidMount() {
     d3.csv(file).then((res) => {
-      let data = res;
       // Did filter by rating but changed to data to comparte with stock chart
       // data = data.filter((data) => data.IMDB_Rating >= 80);
-      data = this.setState({ data: data, filteredData: data });
+      this.setState({ data: res, filteredData: res });
       this.setState({
         singleData: this.state.filteredData[0],
       });
@@ -35,16 +31,16 @@ export default class DonutChart extends Component {
     let getLength = this.state.showLength;
     let finalData;
     // Set value of year or show length
-    if (e.target.className == "length") {
+    if (e.target.className === "length") {
       this.setState({ showLength: e.target.value });
       getLength = e.target.value;
-    } else if (e.target.className == "year") {
+    } else if (e.target.className === "year") {
       this.setState({ year: e.target.value });
       getYear = e.target.value;
     }
 
     // Check value of year
-    if (getYear != "all") {
+    if (getYear !== "all") {
       let data = this.state.data.filter((data) => {
         let dateRange = new Date(data.premiereDate);
         let start = new Date("01/01/" + getYear);
@@ -58,10 +54,9 @@ export default class DonutChart extends Component {
     }
 
     // Check value of length
-    if (getLength != "all") {
+    if (getLength !== "all") {
       let data = finalData.filter((data) => {
         let newData = data.Max_Length;
-        let start = getLength;
         let finish = parseInt(getLength) + 10;
         return newData >= getLength && newData <= finish;
       });
@@ -149,8 +144,6 @@ export default class DonutChart extends Component {
     let height = 380;
     let width = 380;
     let thickness = 40;
-    let duration = 750;
-    let color = d3.scaleOrdinal(d3.schemeCategory10);
 
     let scale = d3
       .scaleLinear()

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import file from "../data/StreamingCompetition.csv";
-const axios = require("axios");
 const d3 = require("d3");
 
 export default class StreamingStats extends Component {

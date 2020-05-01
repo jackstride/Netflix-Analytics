@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./index.css";
 import "./media.css";
 
@@ -10,7 +10,6 @@ import DonutChart from "./Components/DonutChart";
 import Intro from "./Components/Intro";
 import HightRatedGenres from "./Components/HighRatedGenres";
 import AverageRunTime from "./Components/AverageRunTime";
-import Modal from "./Components/Modal";
 import Title from "./Components/Title";
 
 let App = () => {

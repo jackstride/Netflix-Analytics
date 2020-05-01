@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import Modal from "./Modal";
-import { treemapBinary } from "d3";
 
-const Title = ({ index, children }) => {
+const Title = ({ index }) => {
   const [show, setShow] = useState(false);
   const [info, setInfo] = useState([
     {

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import file from "../data/StockData.csv";
-const axios = require("axios");
 const d3 = require("d3");
 
 // Web scraping tutorial - https://www.freecodecamp.org/news/the-ultimate-guide-to-web-scraping-with-node-js-daa2027dcd3/
@@ -88,7 +87,7 @@ export default class WorldSubscribers extends Component {
 
     let createDots = (chartData) => {
       d3.selectAll("#stockData circle").remove();
-      let dots = svg
+      svg
         .selectAll("dot")
         .data(chartData)
         .enter()
@@ -212,7 +211,7 @@ export default class WorldSubscribers extends Component {
     };
 
     let update = (option) => {
-      if (option == "0") {
+      if (option === "0") {
         setChart(this.state.data);
         createDots(this.state.data);
       } else {

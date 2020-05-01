@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import file from "../data/NetflixShows.csv";
-import axios from "axios";
 const d3 = require("d3");
 
 const HightRatedGenres = () => {
   let [data, setData] = useState();
 
   useEffect(() => {
-    d3.csv(file).then(res => {
+    d3.csv(file).then((res) => {
       let drama = getAverageLength(res, "Drama");
       let comedy = getAverageLength(res, "Comedy");
       let docu = getAverageLength(res, "Docu-Series");
@@ -19,12 +18,13 @@ const HightRatedGenres = () => {
         { genre: "Comedy", value: comedy },
         { genre: "Docu-Series", value: docu },
         { genre: "Family", value: family },
-        { genre: "Marvel", value: marvel }
+        { genre: "Marvel", value: marvel },
       ];
       setData(dataArray);
     });
   }, [setData]);
 
+  // Botch Job
   useEffect(() => {
     if (data) {
       chart();
@@ -32,7 +32,7 @@ const HightRatedGenres = () => {
   }, [data]);
 
   let getAverageLength = (array, genreName) => {
-    let genre = array.filter(item => item.Major_Genre === genreName);
+    let genre = array.filter((item) => item.Major_Genre === genreName);
 
     let total = genre.reduce((prev, curr) => {
       return Math.ceil(prev + parseInt(curr.Max_Length) / genre.length);
@@ -53,10 +53,7 @@ const HightRatedGenres = () => {
         margin.bottom;
 
     // set the ranges
-    var y = d3
-      .scaleBand()
-      .range([height, 0])
-      .padding(0.1);
+    var y = d3.scaleBand().range([height, 0]).padding(0.1);
 
     var x = d3.scaleLinear().range([0, width]);
 
@@ -72,19 +69,19 @@ const HightRatedGenres = () => {
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
     // format the data
-    data.forEach(function(d) {
+    data.forEach(function (d) {
       d.value = +d.value;
     });
 
     // Scale the range of the data in the domains
     x.domain([
       0,
-      d3.max(data, function(d) {
+      d3.max(data, function (d) {
         return d.value;
-      })
+      }),
     ]);
     y.domain(
-      data.map(function(d) {
+      data.map(function (d) {
         return d.genre;
       })
     );
@@ -98,10 +95,10 @@ const HightRatedGenres = () => {
       .append("rect")
       .attr("class", "bar")
       //.attr("x", function(d) { return x(d.sales); })
-      .attr("width", function(d) {
+      .attr("width", function (d) {
         return x(d.value);
       })
-      .attr("y", function(d) {
+      .attr("y", function (d) {
         return y(d.genre);
       })
       .attr("height", y.bandwidth());

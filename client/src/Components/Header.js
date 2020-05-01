@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect, forwardRef } from "react";
 
 import Logo from "../images/netflix.png";
-import { ReactComponent as SVG } from "../images/analytics.svg";
 import { ReactComponent as Info } from "../images/info-solid.svg";
 
 const Header = () => {
