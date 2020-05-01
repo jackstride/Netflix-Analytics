@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "fb76cf1ffe5242a8c10d2e2cf0778484",
+    "revision": "ae8cc7088be6b06e940617666125f587",
     "url": "/Netflix-Analytics/index.html"
   },
   {
